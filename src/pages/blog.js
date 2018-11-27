@@ -2,10 +2,10 @@ import React from 'react'
 import './../styles/index.scss'
 import Layout from '../components/layout'
 
-const IndexPage = () => (
+const BlogPage = () => (
   <Layout>
-    <h1>Here goes the content for index</h1>
+    <h1>Here goes the content for blog</h1>
   </Layout>
  )
 
-export default IndexPage
+export default BlogPage
