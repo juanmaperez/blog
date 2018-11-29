@@ -1,14 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+
+import Menu from './menu';
+
 
 import Header from './header'
-import './layout.css'
+import './layout.scss'
 
 const Layout = ({ children }) => (   
         <div className="wrapper">
-          <Header siteTitle={'Juanma Perez'} />  
+          <Header siteTitle={'Juanma Perez'} />
+          <Menu />
           {children}
         </div>
     )

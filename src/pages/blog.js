@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 
 const BlogPage = () => (
   <Layout>
-    <h1>Here goes the content for blog</h1>
+    {/* <h1>Here goes the content for blog</h1> */}
   </Layout>
  )
 
