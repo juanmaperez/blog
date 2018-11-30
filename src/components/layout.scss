@@ -637,40 +637,95 @@ body {
     position:relative;
     width: 100%;
     min-height:100%;
-    border: 1px solid salmon;
-    
     display: flex;
-    display: -webkit-flex;
-    flex-direction: row;
-    -ms-flex-direction: row;
-    justify-content: center;
 
-    .content {
-      border: 1px solid chocolate;
-      transition: max-width 0.5s ease, opacity 0.1 linear;
-      max-width: 0;
-      opacity: 0;
+    /* The animation code */
+@keyframes chocolate-close {
+  0%   {width:100%;}
+  100% {width:0%;}
+}
 
-      &.close {
-        flex: 1;
-        max-width: none;
-        opacity: 1;
-      }
+@keyframes chocolate-open {
+  0%   {width:0%;}
+  100% {width:100%;}
+}
+
+@keyframes teal-open {
+  0%   {width:0%;}
+  100% {width:100%;}
+}
+
+@keyframes teal-close {
+  0%   {width:100%;}
+  100% {width:0%;}
+}
+
+button {
+  position: fixed;
+  top: 60px;
+  left: 60px;
+  z-index: 100;
+}
+.chocolate {
+  background-color: chocolate;
+  position: relative;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  flex: 1;
+
+  &.open {
+    animation-name: chocolate-close;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+  }
+  &.close {
+    animation-name: chocolate-open;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+  }
+}
+
+  .teal {
+    background-color: teal;
+    position: relative;
+    right: 0;
+    z-index: 2; /* Let it fill the entire space horizontally */
+    width: 0%;
+
+    &.open {
+      animation-name:teal-open;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in;
     }
-
-    .aside {
-      border: 1px solid teal;
-      flex: 1;
-      max-width:none;
-      opacity: 1;
-
-      &.close {
-        flex: 0;
-        max-width: 0;
-        opacity: 0;
-      }
+    &.close {
+      animation-name: teal-close;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;  
+      animation-timing-function: ease-out;
     }
   }
+}
+
+.span-content {
+  font-size: 2em;
+  font-weight: bold;
+  position: absolute;
+  margin: 50px 20px;
+  opacity: 100%;
+  transition: opacity 0.4s;
+}
+.teal &, .chocolate &{
+  .close {
+    .span-content {
+      opacity: 0;
+    }
+  }
+
+}
 
   .menu-wrapper {
     position: absolute;
