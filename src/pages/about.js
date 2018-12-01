@@ -1,6 +1,8 @@
 import React, { Component} from 'react'
-import './../styles/index.scss'
 import Layout from '../components/layout'
+import Menu from './../components/menu'
+
+import './../styles/index.scss'
 
 class AboutPage extends Component {
 
@@ -24,24 +26,32 @@ class AboutPage extends Component {
     const { status } = this.state;
     return (
       <Layout>
-        {/* <div className="main-page about">
-          <div className={'chocolate ' + close}>
-            <span>Here goes the left content for about</span><br/>
-            <button onClick={this.changeValueClose}>btn</button>
+        <div className="main-page about">
+          <div className={'intro ' + status}>
+            <div className="intro-container">
+              <div className="row-top">
 
+              </div>
+              <div className="row-center" >
+                <Menu />
+              </div>
+              <div className="row-bottom">                
+                <span className="intro-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae augue id mi lobortis aliquet vitae et sem. 
+                  In fermentum ante sed turpis auctor finibus. Etiam sit amet leo eu arcu euismod ornare id pulvinar mauris. 
+                  Ut sagittis et urna et efficitur. Morbi porttitor lobortis accumsan. Curabitur hendrerit consequat dignissim.
+                </span>
+                <button className="read-more" onClick={this.changeValueClose}>Read More</button>
+              </div>
+
+            </div>
           </div>
-          <div className={'teal ' + close}>
-            <span>Here goes the right content for about</span><br/>
-            <button onClick={this.changeValueClose}>btn</button>
-          </div>
-        </div> */}
-          <div className="main-page about">
-          <button onClick={this.changeValueClose}>btn</button>
-          <div className={'chocolate ' + status}>
-            <span className='span-content'>Here goes the left content for about</span>
-          </div>
-          <div className={'teal ' + status}>
-            <span className='span-content'>Here goes the right content for about</span>
+          <div className={'content ' + status}>
+            <div className="close-btn" onClick={this.changeValueClose}>X</div>
+            <div className='content-container'>
+            
+            
+            </div>
           </div>
         </div>
       </Layout>

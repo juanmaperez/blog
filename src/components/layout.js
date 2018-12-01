@@ -1,17 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Menu from './menu';
-
-
 import Header from './header'
-import './layout.scss'
+
+import './../styles/layout.scss'
 
 const Layout = ({ children }) => (   
         <div className="wrapper">
-          <Header siteTitle={'Juanma Perez'} />
-          <Menu />
+          <Header className="header-wrapper" siteTitle={'Juanma Perez'} />
+
           {children}
+        
         </div>
     )
 
