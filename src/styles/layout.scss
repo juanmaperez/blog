@@ -88,84 +88,101 @@ body {
         .row-center {
           flex: 1 0 100%;
           width: 100%;
-          padding: 10px 20px 0px;          box-sizing: border-box;
+          padding: 10px 20px 0px;          
+          box-sizing: border-box;
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
-
-          button.goUp {
-            position: fixed;
-            top: 10px;
-            left: 50%;
-            width: 30px;
-            text-align: center;
-            margin-left:-15px;
-            z-index: 3;
-          }
-          button.goDown {
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            width: 30px;
-            text-align: center;
-            margin-left:-15px;
-            z-index: 3;
-          }
-
-          .menu-wrapper {
-            min-height: 100%;
-            max-height: 250px;
+          .menu {
             position: relative;
-            // comment to test
-            overflow: hidden;
-            ul.menu-container {
-              position:relative;
-              transition: top 400ms linear;
 
-              .menu-link {
-                cursor: pointer;
-                .link { 
-                  display:inline-block;
-                  font-weight: normal;
-                  font-size: 25vh;
-                  line-height: 1;
-                  text-decoration: none;
-                  color:#000;
-                  position: relative;
-                  z-index: 2;
-                  min-height: 225px;
-                
-                  &:before {
-                    width: 0%;
+            .goUp {
+              cursor: pointer;
+              position: absolute;
+              top: -10px;
+              left: 20px;
+              width: 30px;
+              text-align: center;
+              margin-left:-15px;
+              z-index: 3;
+              opacity: .6;
+              i { font-size: 30px;}
+              &:hover {
+                opacity: 1
+              }
+            }
+            .goDown {
+              cursor: pointer;
+              position: absolute;
+              bottom: 10px;
+              left: 20px;
+              width: 30px;
+              text-align: center;
+              margin-left:-15px;
+              z-index: 15;
+              opacity: .6;
+              i{ font-size: 30px; }
+              &:hover {
+                opacity: 1
+              }
+            }
+            .menu-wrapper {
+              min-height: 100%;
+              max-height: 250px;
+              position: relative;
+              // comment to test
+              overflow: hidden;
+           
+              ul.menu-container {
+                position:relative;
+                transition: top 400ms linear;
+  
+                .menu-link {
+                  cursor: pointer;
+                  padding-left: 25px;
+
+                  .link { 
+                    display:inline-block;
+                    font-weight: normal;
+                    font-size: 25vh;
+                    line-height: 1;
+                    text-decoration: none;
+                    color:#000;
                     position: relative;
-                    z-index: 1;
-                    top: 147px;
-                    content: '';
-                    height: 15px;
-                    background: #000;
-                    display: block;
-                    transition: width 0.3s ease-in-out;
-                    margin: 0 auto;
-                  }
-                  &:hover:before{
-                    width: 100%;
+                    z-index: 2;
+                    min-height: 225px;
+                  
+                    &:before {
+                      width: 0%;
+                      position: relative;
+                      z-index: 1;
+                      top: 147px;
+                      content: '';
+                      height: 15px;
+                      background: #000;
+                      display: block;
+                      transition: width 0.3s ease-in-out;
+                      margin: 0 auto;
+                    }
+                    &:hover:before{
+                      width: 100%;
+                    }
                   }
                 }
               }
             }
           }
-
         }
         .row-bottom {
           flex: 1 0 100%;
           width: 100%;
-          padding: 0px 20px 10px;
+          padding: 15px 20px 10px;
           box-sizing: border-box;
 
           .intro-text {
             display: block;
             max-width: 40%;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             line-height: 1.6;
             font-size: 18px;
           }
@@ -188,35 +205,40 @@ body {
       z-index: 2; /* Let it fill the entire space horizontally */
       width: 0%;
 
+      .close-btn {
+        display:none;
+      }
+
       &.open {
         animation-name: open;
         animation-duration: 0.5s;
         animation-fill-mode: forwards;
         animation-timing-function: ease-in;
+        .close-btn {
+          display: block;
+          position: absolute;
+          top: 50px;
+          left: 20px;
+          border: 1px solid #fff;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          text-align: center;
+          font-size: 18px;
+          padding: 11px;
+          font-weight: lighter;
+          font-stretch: extra-expanded;
+          color: #fff;
+          vertical-align: middle;
+        }
       }
       &.close {
         animation-name: close;
         animation-duration: 0.5s;
         animation-fill-mode: forwards;  
         animation-timing-function: ease-out;
-      }
-
-      .close-btn {
-        position: absolute;
-        top: 50px;
-        left: 30px;
-        border: 1px solid #fff;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        text-align: center;
-        font-size: 28px;
-        padding: 11px;
-        font-weight: lighter;
-        font-stretch: extra-expanded;
-        color: #fff;
-        vertical-align: middle;
-      }
+      
+      }     
     }
   }
 

@@ -15,6 +15,7 @@ class Menu extends Component {
 
   goUp = () => {
     let { active, options } = this.state;
+    console.log(active)
     if(active > 0 ) {
       active--;
       this.setState(()=>({
@@ -40,9 +41,9 @@ class Menu extends Component {
     const styles = { top: -20 + (-258 * active)}
     
     return (
-      <div>
-        <button className="goUp" onClick={this.goUp}>+</button>
-        <button className="goDown" onClick={this.goDown}>-</button>
+      <div class="menu">
+        { active > 0 && <span className="goUp" onClick={this.goUp}><i class="fas fa-angle-up"></i></span>}
+        { active < (options.length -1) &&  <span className="goDown" onClick={this.goDown}><i class="fas fa-angle-down"></i></span>}
         <div className="menu-wrapper">
           <ul style={ styles } className="menu-container">
             { options.map((option) => <li key={option.title} className="menu-link"><Link to={ option.to }/><span className="link">{ option.title }</span></li> )}  
