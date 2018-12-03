@@ -6,20 +6,28 @@ import './../styles/index.scss'
 
 class AboutPage extends Component {
 
+  _isMounted = false;
+
   state = {
     status: null, 
   }
 
+  componentDidMount(){
+    this._isMounted = true;
+  }
+
   changeValueClose = () => {
-    let { status } = this.state;
-    if(status === null) {
-      status = 'open';
-    } else {
-      status = status === 'open' ? 'close' : 'open';
+    if(this._isMounted){
+      let { status } = this.state;
+      if(status === null) {
+        status = 'open';
+      } else {
+        status = status === 'open' ? 'close' : 'open';
+      }
+      this.setState(()=> ({
+        status
+      }))
     }
-    this.setState(()=> ({
-      status
-    }))
   }
   
   render(){
@@ -33,11 +41,11 @@ class AboutPage extends Component {
 
               </div>
               <div className="row-center" >
-                <Menu />
+                <Menu location={this.props.location}/>
               </div>
               <div className="row-bottom">                
                 <span className="intro-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae augue id mi lobortis aliquet vitae et sem. 
+                  ABOUT ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae augue id mi lobortis aliquet vitae et sem. 
                   In fermentum ante sed turpis auctor finibus. Etiam sit amet leo eu arcu euismod ornare id pulvinar mauris. 
                   Ut sagittis et urna et efficitur. Morbi porttitor lobortis accumsan. Curabitur hendrerit consequat dignissim.
                 </span>

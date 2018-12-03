@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby'
+import { navigate } from 'gatsby-link';
+
 
 class Menu extends Component {
+  scrollTimer = null;
   state = {
     'options': [
       { title:'Hello', to:'/', color:'' },
@@ -10,18 +13,40 @@ class Menu extends Component {
       { title:'Blog', to:'/blog', color:'' },
       { title:'Contact', to:'/contact', color:'' }
     ],
-    'active': 0
+    'active': 0,
   } 
+
+  componentDidMount(){
+    
+    console.log('active', this.props.location)
+    window.addEventListener('wheel', e => this.handleNavigation(e));
+  }
+
+  setActiveValue(){
+    const { location } = this.props;
+    const { options } = this.state;
+    // get the location and compare with the path to load the active value in the menu
+
+  }
+
+  handleNavigation = (e) =>{
+    clearTimeout(this.scrollTimer); 
+    if (e.deltaY < 0) {
+      this.scrollTimer = setTimeout(this.goUp, 35)
+    }
+    if (e.deltaY > 0) {
+      this.scrollTimer = setTimeout(this.goDown, 35)
+    }     
+  };
 
   goUp = () => {
     let { active, options } = this.state;
-    console.log(active)
     if(active > 0 ) {
       active--;
       this.setState(()=>({
-        options,
         active
       }))
+      // navigate(options[active].to)
     }
   }
 
@@ -30,9 +55,9 @@ class Menu extends Component {
     if(active < options.length - 1) {
       active++;
       this.setState(()=>({
-        options,
         active
       }))
+      // navigate(options[active].to)
     }
   }
 
@@ -41,9 +66,9 @@ class Menu extends Component {
     const styles = { top: -20 + (-258 * active)}
     
     return (
-      <div class="menu">
-        { active > 0 && <span className="goUp" onClick={this.goUp}><i class="fas fa-angle-up"></i></span>}
-        { active < (options.length -1) &&  <span className="goDown" onClick={this.goDown}><i class="fas fa-angle-down"></i></span>}
+      <div className="menu">
+        { active > 0 && <span className="goUp" onClick={this.goUp}><i className="fas fa-angle-up"></i></span>}
+        { active < (options.length -1) &&  <span className="goDown" onClick={this.goDown}><i className="fas fa-angle-down"></i></span>}
         <div className="menu-wrapper">
           <ul style={ styles } className="menu-container">
             { options.map((option) => <li key={option.title} className="menu-link"><Link to={ option.to }/><span className="link">{ option.title }</span></li> )}  
