@@ -17,24 +17,16 @@ class Menu extends Component {
   } 
 
   componentDidMount(){
-    
     console.log('active', this.props.location)
     window.addEventListener('wheel', e => this.handleNavigation(e));
   }
 
-  setActiveValue(){
-    const { location } = this.props;
-    const { options } = this.state;
-    // get the location and compare with the path to load the active value in the menu
-
-  }
 
   handleNavigation = (e) =>{
     clearTimeout(this.scrollTimer); 
     if (e.deltaY < 0) {
       this.scrollTimer = setTimeout(this.goUp, 35)
-    }
-    if (e.deltaY > 0) {
+    } else if (e.deltaY > 0) {
       this.scrollTimer = setTimeout(this.goDown, 35)
     }     
   };
@@ -42,28 +34,22 @@ class Menu extends Component {
   goUp = () => {
     let { active, options } = this.state;
     if(active > 0 ) {
-      active--;
-      this.setState(()=>({
-        active
-      }))
-      // navigate(options[active].to)
+      this.setState(()=>({ active : active-- }))
+      navigate(options[active].to)
     }
   }
 
   goDown = () => {
     let { active, options } = this.state;
     if(active < options.length - 1) {
-      active++;
-      this.setState(()=>({
-        active
-      }))
-      // navigate(options[active].to)
+      this.setState(()=>({ active: active++ }))
+      navigate(options[active].to)
     }
   }
 
   render(){
     const { active, options } = this.state;
-    const styles = { top: -20 + (-258 * active)}
+    const styles = { top: -(20 + 258 * active)}
     
     return (
       <div className="menu">
