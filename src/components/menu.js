@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby'
 import { navigate } from 'gatsby-link';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
 class Menu extends Component {
   scrollTimer = null;
@@ -17,10 +18,18 @@ class Menu extends Component {
   } 
 
   componentDidMount(){
-    console.log('active', this.props.location)
+    this.setOptionActive();
     window.addEventListener('wheel', e => this.handleNavigation(e));
   }
 
+  setOptionActive(){
+    const { options } = this.state;
+    const { location } = this.props;
+
+    let active = 0;
+    options.forEach((opt, i) => { if (opt.to === location.pathname){ active = i} })
+    if( active !== 0 ) this.setState(()=>({ active }))
+  }
 
   handleNavigation = (e) =>{
     clearTimeout(this.scrollTimer); 
@@ -53,15 +62,15 @@ class Menu extends Component {
     
     return (
       <div className="menu">
-        { active > 0 && <span className="goUp" onClick={this.goUp}><i className="fas fa-angle-up"></i></span>}
-        { active < (options.length -1) &&  <span className="goDown" onClick={this.goDown}><i className="fas fa-angle-down"></i></span>}
+        {active}
+        { active > 0 && <span className="goUp" onClick={this.goUp}><FontAwesomeIcon icon={faAngleUp} /></span>}
+        { active < (options.length -1) &&  <span className="goDown" onClick={this.goDown}><FontAwesomeIcon icon={faAngleDown} /></span>}
         <div className="menu-wrapper">
           <ul style={ styles } className="menu-container">
             { options.map((option) => <li key={option.title} className="menu-link"><Link to={ option.to }/><span className="link">{ option.title }</span></li> )}  
           </ul>
         </div>
       </div>
-
     )
   }
 }

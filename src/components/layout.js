@@ -36,7 +36,7 @@ class Layout extends Component {
 
               </div>
               <div className="row-center" >
-                <Menu/>
+                <Menu location={this.props.location }/>
               </div>
               <div className="row-bottom">                
                 <span className="intro-text">
