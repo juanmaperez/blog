@@ -35,7 +35,7 @@ class Menu extends Component {
     let { active, options } = this.state;
     if(active > 0 ) {
       this.setState(()=>({ active : active-- }))
-      navigate(options[active].to)
+      // navigate(options[active].to)
     }
   }
 
@@ -43,7 +43,7 @@ class Menu extends Component {
     let { active, options } = this.state;
     if(active < options.length - 1) {
       this.setState(()=>({ active: active++ }))
-      navigate(options[active].to)
+      // navigate(options[active].to)
     }
   }
 

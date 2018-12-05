@@ -7,25 +7,15 @@ import './../styles/index.scss'
 class AboutPage extends Component {
 
   state = {
-    status: null, 
+    intro : `ABOUT ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae augue id mi lobortis aliquet vitae et sem. 
+            In fermentum ante sed turpis auctor finibus. Etiam sit amet leo eu arcu euismod ornare id pulvinar mauris. 
+            Ut sagittis et urna et efficitur. Morbi porttitor lobortis accumsan. Curabitur hendrerit consequat dignissim.`, 
   }
 
-  changeValueClose = () => {
-    let { status } = this.state;
-    if(status === null) {
-      status = 'open';
-    } else {
-      status = status === 'open' ? 'close' : 'open';
-    }
-    this.setState(()=> ({
-      status
-    }))
-  }
-  
   render(){
-    const { status } = this.state;
+    const { intro } = this.state;
     return (
-      <Layout>
+      <Layout intro={intro}>
         <div>
           <h1>About Page</h1>
           <p>About content</p>
