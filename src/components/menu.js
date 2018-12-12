@@ -25,7 +25,6 @@ class Menu extends Component {
   setOptionActive(){
     const { options } = this.state;
     const { location } = this.props;
-
     let active = 0;
     options.forEach((opt, i) => { if (opt.to === location.pathname){ active = i} })
     if( active !== 0 ) this.setState(()=>({ active }))
@@ -43,16 +42,19 @@ class Menu extends Component {
   goUp = () => {
     let { active, options } = this.state;
     if(active > 0 ) {
-      this.setState(()=>({ active : active-- }))
-      // navigate(options[active].to)
+      active-=1;
+      this.setState(()=>({ active }))
+      navigate(options[active].to)
     }
   }
 
   goDown = () => {
     let { active, options } = this.state;
     if(active < options.length - 1) {
-      this.setState(()=>({ active: active++ }))
-      // navigate(options[active].to)
+      active+=1
+      console.log(active)
+      this.setState(()=>({ active }))
+      navigate(options[active].to)
     }
   }
 

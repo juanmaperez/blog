@@ -62,7 +62,7 @@ class Layout extends Component {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  intro: PropTypes.string.isRequired
+  // intro: PropTypes.string.isRequired
 }
 
 export default Layout

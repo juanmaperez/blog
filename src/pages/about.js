@@ -6,10 +6,6 @@ import './../styles/index.scss'
 
 class AboutPage extends Component {
 
-  constructor(props){
-    super(props)
-  }
-
   state = {
     intro : `ABOUT ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae augue id mi lobortis aliquet vitae et sem. 
             In fermentum ante sed turpis auctor finibus. Etiam sit amet leo eu arcu euismod ornare id pulvinar mauris. 
@@ -19,12 +15,10 @@ class AboutPage extends Component {
   render(){
     const { intro } = this.state;
     return (
-      <Layout {...this.props} intro={intro}>
         <div>
           <h1>About Page</h1>
           <p>About content</p>
         </div>
-      </Layout>
      )
   }
 }

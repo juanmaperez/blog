@@ -4,10 +4,6 @@ import Layout from '../components/layout'
 
 class BlogPage extends Component {
 
-  constructor(props){
-    super(props)
-  }
-
   state = {
     intro : `BLOG ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae augue id mi lobortis aliquet vitae et sem. 
             In fermentum ante sed turpis auctor finibus. Etiam sit amet leo eu arcu euismod ornare id pulvinar mauris. 
@@ -17,12 +13,10 @@ class BlogPage extends Component {
   render(){
     const { intro } = this.state;
     return (
-      <Layout {...this.props} intro={ intro }>
         <div>
           <h1>Blog Page</h1>
           <p>Blog content</p>
         </div>
-      </Layout>
      )
   }
 }
