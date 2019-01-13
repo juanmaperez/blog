@@ -8,18 +8,24 @@ class Menu extends Component {
   scrollTimer = null;
   state = {
     'options': [
-      { title:'Hello', to:'/', color:'' },
-      { title:'About', to:'/about', color:'' },
-      { title:'Work', to:'/work', color:'' },
-      { title:'Blog', to:'/blog', color:'' },
-      { title:'Contact', to:'/contact', color:'' }
+      { title:'Hello', to:'/', color:'', description: 'Hello, whatever asdjlks alkdfk as asdf sadf sdf asdfsdfasd sdfsd asdfsdf saddsfdf' },
+      { title:'About', to:'/about', color:'', description: 'About, whatever asdjlks alkdfk as asdf sadf sdf asdfsdfasd sdfsd asdfsdf saddsfdf'},
+      { title:'Work', to:'/work', color:'' , description: 'Work, whatever asdjlks alkdfk as asdf sadf sdf asdfsdfasd sdfsd asdfsdf saddsfdf' },
+      { title:'Blog', to:'/blog', color:'', description: 'Blog, whatever asdjlks alkdfk as asdf sadf sdf asdfsdfasd sdfsd asdfsdf saddsfdf' },
+      { title:'Contact', to:'/contact', color:'' , description: 'Contact, whatever asdjlks alkdfk as asdf sadf sdf asdfsdfasd sdfsd asdfsdf saddsfdf' }
     ],
     'active': 0,
   } 
 
   componentDidMount(){
+    const { options } = this.state;
+    const { location } = this.props;
+
+    const active = options.findIndex(opt => opt.to === location.pathname);
+
     this.setOptionActive();
     window.addEventListener('wheel', e => this.handleNavigation(e));
+    this.props.handleDescription(options[active].description)
   }
 
   setOptionActive(){
@@ -27,33 +33,38 @@ class Menu extends Component {
     const { location } = this.props;
     let active = 0;
     options.forEach((opt, i) => { if (opt.to === location.pathname){ active = i} })
+    this.props.handleDescription(options[active].description)
     if( active !== 0 ) this.setState(()=>({ active }))
+    
   }
 
   handleNavigation = (e) =>{
     clearTimeout(this.scrollTimer); 
     if (e.deltaY < 0) {
-      this.scrollTimer = setTimeout(this.goUp, 35)
+      this.scrollTimer = setTimeout(this.goUp, 45)
     } else if (e.deltaY > 0) {
-      this.scrollTimer = setTimeout(this.goDown, 35)
+      this.scrollTimer = setTimeout(this.goDown, 45)
     }     
   };
 
   goUp = () => {
+    const { status } = this.props;
     let { active, options } = this.state;
-    if(active > 0 ) {
+    if(active > 0 && status !== 'open') {
       active-=1;
       this.setState(()=>({ active }))
+      this.props.handleDescription(options[active].description)
       navigate(options[active].to)
     }
   }
 
   goDown = () => {
+    const { status } = this.props;
     let { active, options } = this.state;
-    if(active < options.length - 1) {
+    if(active < options.length - 1 && status !== 'open') {
       active+=1
-      console.log(active)
       this.setState(()=>({ active }))
+      this.props.handleDescription(options[active].description)
       navigate(options[active].to)
     }
   }
@@ -64,7 +75,6 @@ class Menu extends Component {
     
     return (
       <div className="menu">
-        {active}
         { active > 0 && <span className="goUp" onClick={this.goUp}><FontAwesomeIcon icon={faAngleUp} /></span>}
         { active < (options.length -1) &&  <span className="goDown" onClick={this.goDown}><FontAwesomeIcon icon={faAngleDown} /></span>}
         <div className="menu-wrapper">

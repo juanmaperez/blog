@@ -7,12 +7,13 @@ import './../styles/index.scss'
 import './../styles/layout.scss'
 
 class Layout extends Component {
+
   state = {
-    status: null
+    status: null,
+    description: null,
   }
 
-  constructor(props){
-    super(props)
+  componentDidMount(){
   }
 
   changeValueClose = () => {
@@ -23,8 +24,16 @@ class Layout extends Component {
     }))
   }
 
+  updateDescription = (description) => {
+    if(description) {
+      this.setState(()=>({ 
+        description 
+      }))
+    }
+  }
+
   render(){
-    const { status } = this.state;
+    const { status, description } = this.state;
     return (
       <div className="wrapper">
         <Header className="header-wrapper" siteTitle={'Juanma Perez'} />
@@ -36,11 +45,11 @@ class Layout extends Component {
 
               </div>
               <div className="row-center" >
-                <Menu location={this.props.location }/>
+                <Menu status={status} handleDescription={this.updateDescription} location={this.props.location }/>
               </div>
               <div className="row-bottom">                
                 <span className="intro-text">
-                  { this.props.intro }
+                  { description && <div>{ description }</div> }
                 </span>
                 <button className="read-more" onClick={this.changeValueClose}>Read More</button>
               </div>
