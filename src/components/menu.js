@@ -48,7 +48,7 @@ class Menu extends Component {
     }     
   };
 
-  goUp = () => {
+  goDown = () => {
     const { status } = this.props;
     let { active, options } = this.state;
     if(active > 0 && status !== 'open') {
@@ -59,7 +59,7 @@ class Menu extends Component {
     }
   }
 
-  goDown = () => {
+  goUp = () => {
     const { status } = this.props;
     let { active, options } = this.state;
     if(active < options.length - 1 && status !== 'open') {
@@ -76,8 +76,8 @@ class Menu extends Component {
     
     return (
       <div className="menu">
-        { active > 0 && <span className="goUp" onClick={this.goUp}><FontAwesomeIcon icon={faAngleUp} /></span>}
-        { active < (options.length -1) &&  <span className="goDown" onClick={this.goDown}><FontAwesomeIcon icon={faAngleDown} /></span>}
+        { active < (options.length -1) &&  <span className="goUp" onClick={this.goUp}><FontAwesomeIcon icon={faAngleUp} /></span>}
+        { active > 0 && <span className="goDown" onClick={this.goDown}><FontAwesomeIcon icon={faAngleDown} /></span>}
         <div className="menu-wrapper">
           <ul style={ styles } className="menu-container">
             { options.map((option) => <li key={option.title} className="menu-link"><Link to={ option.to }/><span onClick={this.props.handleContent} className="link">{ option.title }</span></li> )}  

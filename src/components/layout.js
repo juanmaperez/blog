@@ -17,7 +17,6 @@ class Layout extends Component {
 
   changeValueClose = () => {
     let { status } = this.state;
-    console.log('status',status)
     status = status === '' || status === 'close' ? 'open' : 'close'
     this.setState(()=> ({
       status
