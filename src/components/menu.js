@@ -29,7 +29,7 @@ class Menu extends Component {
     this.props.handleDescription(options[active].description)
   }
 
-  setOptionActive(){
+  setOptionActive = ()=>{
     const { options } = this.state;
     const { location } = this.props;
     let active = 0;
@@ -42,9 +42,9 @@ class Menu extends Component {
   handleNavigation = (e) =>{
     clearTimeout(this.scrollTimer); 
     if (e.deltaY < 0) {
-      this.scrollTimer = setTimeout(this.goUp, 55)
-    } else if (e.deltaY > 0) {
       this.scrollTimer = setTimeout(this.goDown, 55)
+    } else if (e.deltaY > 0) {
+      this.scrollTimer = setTimeout(this.goUp, 55)
     }     
   };
 

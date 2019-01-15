@@ -303,6 +303,11 @@ body {
 
 }
 
+
+.msg { border : 1px solid white;
+display: block;
+width: 200px;
+height: 300px}
 // Animations open and close
 
 @keyframes open {
