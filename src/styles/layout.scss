@@ -1,4 +1,26 @@
-@import url('https://fonts.googleapis.com/css?family=Muli:200,300,400,600,700');
+@font-face {
+  font-family: AkzidenzBold;
+  src: url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Bold-Condensed_2806.woff') format('woff'),
+  url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Bold-Condensed_2806.otf') format('otf'),
+  url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Bold-Condensed_2806.ttf') format('ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: AkzidenzNormal;
+  src: url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Medium-Condensed_2824.woff') format('woff'),
+  url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Medium-Condensed_2824.otf') format('otf'),
+  url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Medium-Condensed_2824.tff') format('ttf');
+  font-weight: normal;
+}
+ 
+@font-face {
+  font-family: AkzidenzLight;
+  src: url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Light-Condensed_2824.woff') format('woff'),
+  url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Light-Condensed_2824.otf') format('otf'),
+  url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Light-Condensed_2824.ttf') format('ttf');
+  font-weight: lighter;
+}
 
 .link { text-decoration: none}
 ul, ol {
@@ -8,13 +30,12 @@ ul, ol {
 }
 
 * {
-  font-family: Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 html{
+  overflow:hidden;
   font-family: Helvetica, sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -24,6 +45,7 @@ html{
   position:relative;
 }
 body {
+  overflow:hidden;
   position:absolute;
   min-height:100%;
   width:100% ;
@@ -52,7 +74,6 @@ body {
     display: flex;
 
     .intro {
-      background-color: chocolate;
       position: relative;
       left: 0;
       z-index: 1;
@@ -64,12 +85,20 @@ body {
         animation-duration: 0.5s;
         animation-fill-mode: forwards;
         animation-timing-function: ease-in;
+        .intro-container {
+          opacity: 0;
+          transition: opacity .6s ease;
+        }  
       }
       &.close {
         animation-name: open;
         animation-duration: 0.5s;
         animation-fill-mode: forwards;
         animation-timing-function: ease-out;
+        .intro-container {
+          opacity: 1;
+          transition: opacity .6s ease;
+        }
       }
 
       .intro-container {
@@ -78,6 +107,7 @@ body {
         justify-content: center;
         align-items: center;
         min-height: 100%;
+        opacity: 1;
 
         .row-top {
           flex: 1 0 100%;
@@ -105,64 +135,68 @@ body {
               text-align: center;
               margin-left:-15px;
               z-index: 3;
-              opacity: .6;
+              opacity: 1;
               i { font-size: 30px;}
               &:hover {
-                opacity: 1
+                opacity: .7
               }
             }
             .goDown {
               cursor: pointer;
               position: absolute;
-              bottom: 10px;
+              bottom: 0px;
               left: 20px;
               width: 30px;
               text-align: center;
               margin-left:-15px;
               z-index: 15;
-              opacity: .6;
+              opacity: 1;
               i { font-size: 30px; }
               &:hover {
-                opacity: 1
+                opacity: .7
               }
             }
             .menu-wrapper {
               min-height: 100%;
-              max-height: 250px;
+              max-height: 210px;
               position: relative;
               // comment to test
               overflow: hidden;
            
               ul.menu-container {
                 position:relative;
-                transition: top 400ms linear;
+                transition: top 600ms linear;
   
                 .menu-link {
                   cursor: pointer;
-                  padding-left: 25px;
+                  padding-left: 0px;
+                  padding-left: 15px;
 
                   .link { 
                     display:inline-block;
-                    font-weight: normal;
+                    font-weight: 400;
                     font-size: 242px;
                     line-height: 1;
                     text-decoration: none;
                     color:#000;
                     position: relative;
                     z-index: 2;
-                    min-height: 225px;
+                    min-height: 200px;
+                    font-family: 'AkzidenzLight' !important;
+                    text-transform: uppercase;
+                    // text-transform: uppercase;
                   
                     &:before {
                       width: 0%;
                       position: relative;
                       z-index: 1;
-                      top: 147px;
+                      top: 145px;
                       content: '';
-                      height: 15px;
+                      height: 10px;
                       background: #000;
                       display: block;
                       transition: width 0.3s ease-in-out;
-                      margin: 0 auto;
+                      margin: 0px auto 0;
                     }
                     &:hover:before{
                       width: 100%;
@@ -176,34 +210,55 @@ body {
         .row-bottom {
           flex: 1 0 100%;
           width: 100%;
-          padding: 15px 20px 10px;
+          padding: 10px 40px 10px;
           box-sizing: border-box;
 
           .intro-text {
             display: block;
-            max-width: 40%;
-            margin-bottom: 30px;
-            line-height: 1.6;
-            font-size: 18px;
+            max-width: 50%;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-size: 24px;
+            font-family: 'AkzidenzLight' !important;
+
           }
           .read-more {
+            font-family: 'AkzidenzNormal' !important;
             background: #fff;
             width: 120px;
             padding: 10px 14px;
             text-align: center;
             border: 1px solid #333;
-            font-size: 14px;
+            font-size: 18px;
+            cursor: pointer;
           }
         }
       }
     }
 
     .content {
-      background-color: teal;
+      background: rgb(20, 20, 20);
+      color: #fff;
       position: relative;
       right: 0;
-      z-index: 2; /* Let it fill the entire space horizontally */
-      width: 0%;
+      z-index: 2;
+      .content-container{
+        padding: 70px 40px 20px;
+        h1 {
+          font-size: 75px;
+          font-family: 'AkzidenzNormal' !important;
+          text-transform: uppercase;
+          color: rgb(232, 185, 74);
+          margin: 10px 0px;
+          letter-spacing: 1px;
+        }
+        p {
+          font-family: 'AkzidenzLight' !important;
+          font-size:24px;
+        }
+      }
+      /* Let it fill the entire space horizontally */
+      * { display: none;}
 
       .close-btn {
         display:none;
@@ -216,28 +271,32 @@ body {
         animation-timing-function: ease-in;
         .close-btn {
           display: block;
-          position: absolute;
-          top: 50px;
+          position: fixed;
+          bottom: 20px;
           left: 20px;
-          border: 1px solid #fff;
-          width: 20px;
-          height: 20px;
+          border: 1px solid #999;
+          width: 15px;
+          height: 15px;
           border-radius: 50%;
           text-align: center;
-          font-size: 18px;
-          padding: 11px;
+          font-size: 14px;
+          padding: 7px;
           font-weight: lighter;
           font-stretch: extra-expanded;
-          color: #fff;
+          color: #999;
           vertical-align: middle;
+          cursor: pointer;
         }
+        * { display: block;}
       }
       &.close {
         animation-name: close;
         animation-duration: 0.5s;
         animation-fill-mode: forwards;  
         animation-timing-function: ease-out;
-      
+  
+        * { display: none;}
+        
       }     
     }
   }

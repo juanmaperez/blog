@@ -24,7 +24,8 @@ class Menu extends Component {
     const active = options.findIndex(opt => opt.to === location.pathname);
 
     this.setOptionActive();
-    window.addEventListener('wheel', e => this.handleNavigation(e));
+    const page = document.querySelector('.intro');
+    page.addEventListener('wheel', e => this.handleNavigation(e));
     this.props.handleDescription(options[active].description)
   }
 
@@ -41,9 +42,9 @@ class Menu extends Component {
   handleNavigation = (e) =>{
     clearTimeout(this.scrollTimer); 
     if (e.deltaY < 0) {
-      this.scrollTimer = setTimeout(this.goUp, 45)
+      this.scrollTimer = setTimeout(this.goUp, 55)
     } else if (e.deltaY > 0) {
-      this.scrollTimer = setTimeout(this.goDown, 45)
+      this.scrollTimer = setTimeout(this.goDown, 55)
     }     
   };
 
@@ -71,7 +72,7 @@ class Menu extends Component {
 
   render(){
     const { active, options } = this.state;
-    const styles = { top: -(20 + 258 * active)}
+    const styles = { top: -(20+252 * active)}
     
     return (
       <div className="menu">
@@ -79,7 +80,7 @@ class Menu extends Component {
         { active < (options.length -1) &&  <span className="goDown" onClick={this.goDown}><FontAwesomeIcon icon={faAngleDown} /></span>}
         <div className="menu-wrapper">
           <ul style={ styles } className="menu-container">
-            { options.map((option) => <li key={option.title} className="menu-link"><Link to={ option.to }/><span className="link">{ option.title }</span></li> )}  
+            { options.map((option) => <li key={option.title} className="menu-link"><Link to={ option.to }/><span onClick={this.props.handleContent} className="link">{ option.title }</span></li> )}  
           </ul>
         </div>
       </div>

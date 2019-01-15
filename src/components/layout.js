@@ -9,16 +9,16 @@ import './../styles/layout.scss'
 class Layout extends Component {
 
   state = {
-    status: null,
+    status: '',
     description: null,
   }
 
-  componentDidMount(){
-  }
+  componentDidMount(){}
 
   changeValueClose = () => {
     let { status } = this.state;
-    status = status === null || status === 'close' ? 'open' : 'close'
+    console.log('status',status)
+    status = status === '' || status === 'close' ? 'open' : 'close'
     this.setState(()=> ({
       status
     }))
@@ -36,7 +36,7 @@ class Layout extends Component {
     const { status, description } = this.state;
     return (
       <div className="wrapper">
-        <Header className="header-wrapper" siteTitle={'Juanma Perez'} />
+        <Header className="header-wrapper" status={status} siteTitle={'Juanma Perez'} />
         
         <div className="main-page">
           <div className={'intro ' + status}>
@@ -45,7 +45,7 @@ class Layout extends Component {
 
               </div>
               <div className="row-center" >
-                <Menu status={status} handleDescription={this.updateDescription} location={this.props.location }/>
+                <Menu status={status} handleContent={this.changeValueClose} handleDescription={this.updateDescription} location={this.props.location }/>
               </div>
               <div className="row-bottom">                
                 <span className="intro-text">

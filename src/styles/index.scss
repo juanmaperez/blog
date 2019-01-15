@@ -1,19 +1,51 @@
+@font-face {
+  font-family: AkzidenzBold;
+  src: url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Bold-Condensed_2806.woff') format('woff'),
+  url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Bold-Condensed_2806.otf') format('otf'),
+  url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Bold-Condensed_2806.ttf') format('ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: AkzidenzNormal;
+  src: url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Medium-Condensed_2824.woff') format('woff'),
+  url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Medium-Condensed_2824.otf') format('otf'),
+  url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Medium-Condensed_2824.tff') format('ttf');
+  font-weight: normal;
+}
+ 
+@font-face {
+  font-family: AkzidenzLight;
+  src: url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Light-Condensed_2824.woff') format('woff'),
+  url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Light-Condensed_2824.otf') format('otf'),
+  url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Light-Condensed_2824.ttf') format('ttf');
+  font-weight: lighter;
+}
+
 .header {
   position: absolute;
   z-index: 10;
   top: 0px;
   left: 0px;
   width: 100%;
-  padding: 20px;
+  padding: 20px 40px;
   box-sizing: border-box;
   
   .sub-header{
     .title {
-      font-size: 16px;
+      font-size: 24px;
+      font-weight: 200;
       text-transform: uppercase;
       text-decoration:none;
+      font-family: 'AkzidenzLight';
+
       .link {
         color:#333;
+        &.open {
+          font-family: 'AkzidenzNormal';
+          
+        }
+        &.open {color:#fff}
       }
     }
   }
