@@ -1,10 +1,20 @@
 @font-face {
+  font-family: 'MFred';
+  src: url('/fonts/mfred/MFred.woff') format('woff2'),
+  url('/fonts/mfred/MFred.woff') format('woff'),
+  url('/fonts/mfred/MFred.eot') format('eot'),
+  url('/fonts/mfred/MFred.ttf') format('ttf');
+  font-weight: normal;
+}
+
+@font-face {
   font-family: AkzidenzBold;
   src: url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Bold-Condensed_2806.woff') format('woff'),
   url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Bold-Condensed_2806.otf') format('otf'),
   url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Bold-Condensed_2806.ttf') format('ttf');
   font-weight: bold;
 }
+
 
 @font-face {
   font-family: AkzidenzNormal;
@@ -22,6 +32,8 @@
   font-weight: lighter;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+
 .header {
   position: absolute;
   z-index: 10;
@@ -37,12 +49,12 @@
       font-weight: 200;
       text-transform: uppercase;
       text-decoration:none;
-      font-family: 'AkzidenzLight';
+      font-family: 'MFred' !important;
 
       .link {
         color:#333;
         &.open {
-          font-family: 'AkzidenzNormal';
+          font-family: 'MFred';
           
         }
         &.open {color:#fff}
