@@ -3,6 +3,10 @@ import PropTypes from 'prop-types'
 import Header from './header'
 import Menu from './menu'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faArrowRight, faWindowClose } from '@fortawesome/free-solid-svg-icons'
+
+
 import './../styles/index.scss'
 import './../styles/layout.scss'
 
@@ -34,7 +38,7 @@ class Layout extends Component {
   render(){
     const { status, description } = this.state;
     return (
-      <div className="wrapper">
+      <div className={'wrapper ' + status}>
         <Header className="header-wrapper" status={status} siteTitle={'Juanma Perez'} />
         
         <div className="main-page">
@@ -50,13 +54,13 @@ class Layout extends Component {
                 <span className="intro-text">
                   { description && <div>{ description }</div> }
                 </span>
-                <button className="read-more" onClick={this.changeValueClose}>Read More</button>
+                <button className="read-more" onClick={this.changeValueClose}>Read More <span><FontAwesomeIcon className="icon" icon={faArrowRight} /></span></button>
               </div>
 
             </div>
           </div>
           <div className={'content ' + status}>
-            <div className="close-btn" onClick={this.changeValueClose}>X</div>
+            <div className="close-btn" onClick={this.changeValueClose}><span onClick={this.changeValueClose}><FontAwesomeIcon className="icon" icon={faWindowClose} /></span></div>
             <div className='content-container'>
               { this.props.children }
             </div>

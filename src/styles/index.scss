@@ -40,7 +40,7 @@
   top: 0px;
   left: 0px;
   width: 100%;
-  padding: 20px 40px;
+  padding: 20px 40px 0px;
   box-sizing: border-box;
   
   .sub-header{
@@ -52,12 +52,12 @@
       font-family: 'MFred' !important;
 
       .link {
-        color:#333;
+        color:#fff;
         &.open {
           font-family: 'MFred';
           
         }
-        &.open {color:#fff}
+        &.open {color:#141414}
       }
     }
   }
