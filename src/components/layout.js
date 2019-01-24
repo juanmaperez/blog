@@ -13,7 +13,7 @@ import './../styles/layout.scss'
 class Layout extends Component {
 
   state = {
-    status: 'open',
+    status: '',
     description: null,
   }
 
@@ -60,7 +60,12 @@ class Layout extends Component {
             </div>
           </div>
           <div className={'content ' + status}>
-            <div className="close-btn" onClick={this.changeValueClose}><span onClick={this.changeValueClose}><FontAwesomeIcon className="icon" icon={faWindowClose} /></span></div>
+            <div className="close-btn" onClick={this.changeValueClose}>
+              <span onClick={this.changeValueClose}>
+                close
+                {/* <FontAwesomeIcon className="icon" icon={faWindowClose} /> */}
+              </span>
+            </div>
             <div className='content-container'>
               { this.props.children }
             </div>

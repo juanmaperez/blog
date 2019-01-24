@@ -8,29 +8,6 @@
 }
 
 
-@font-face {
-  font-family: AkzidenzBold;
-  src: url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Bold-Condensed_2806.woff') format('woff'),
-  url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Bold-Condensed_2806.otf') format('otf'),
-  url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Bold-Condensed_2806.ttf') format('ttf');
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: AkzidenzNormal;
-  src: url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Medium-Condensed_2824.woff') format('woff'),
-  url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Medium-Condensed_2824.otf') format('otf'),
-  url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Medium-Condensed_2824.tff') format('ttf');
-  font-weight: normal;
-}
- 
-@font-face {
-  font-family: AkzidenzLight;
-  src: url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Light-Condensed_2824.woff') format('woff'),
-  url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Light-Condensed_2824.otf') format('otf'),
-  url('/fonts/Akzidenz/Akzidenz-Grotesk-BQ-Light-Condensed_2824.ttf') format('ttf');
-  font-weight: lighter;
-}
 
 .link { text-decoration: none}
 ul, ol {
@@ -280,6 +257,12 @@ body {
 
       .close-btn {
         display:none;
+        position: fixed;
+        top: 160px;
+        left: -3px;
+        bottom: auto;
+        transform: rotate(-90deg);
+        transition: bottom 200ms linear;
       }
 
       &.open {
@@ -291,18 +274,20 @@ body {
           font-family: 'Questrial' !important;
           display: block;
           text-align: center;
-          font-size: 18px;
+          font-size: 16px;
           cursor: pointer;
           color: #141414;
-          position: fixed;
-          top: 50px;
-          left: 35px;
           z-index: 20;
           font-weight: bolder;
+          top: auto;
+          bottom: 40px;
+          
           span {
             margin-left: 5px;
-            font-size: 20px;
-            * {cursor: pointer;}
+            font-size: 16px;
+       
+
+           * {cursor: pointer;}
           }
         }
         .content-container { display: block;}
