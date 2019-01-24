@@ -1,8 +1,11 @@
-import React, { Component} from 'react'
+import React, { Component} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
+import '../styles/contact.scss'
 class ContactPage extends Component {
   
-  state = { msg : null };
+  state = { msg : null, type: '' };
   timeOut = null;
   
   getMyPhone = () => {
@@ -21,7 +24,7 @@ class ContactPage extends Component {
     }
   }
  
-  copyTextToClipboard = (text, elementCopied) => {
+  copyTextToClipboard = (text, type) => {
     let txtArea;
     if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
       txtArea = document.createElement('input');
@@ -57,9 +60,9 @@ class ContactPage extends Component {
 
     try {
       const successful = document.execCommand('copy');
-      const msg = successful ? `${ elementCopied } copied on your clipboard` : `${ elementCopied } unable to copy`;
+      const msg = successful ? `${ type } copied on your clipboard` : `${ type } unable to copy`;
       if (successful) {
-        this.setState(()=>({ msg }))
+        this.setState(()=>({ msg, type }))
         return true;
       }
     } catch (err) {
@@ -72,27 +75,40 @@ class ContactPage extends Component {
 
   removeMsg = () => {
     const msg = null;
+    const type = '';
     this.timeOut = null;
 
     if(!this.timeOut){
-      this.timeOut = setTimeout(() => this.setState(()=>({ msg })), 3000)
+      this.timeOut = setTimeout(() => this.setState(()=>({ msg, type })), 5000)
     }
     console.log(this.timeOut)
   }
   
   render(){
-    const { msg } = this.state;
+    const { msg, type } = this.state;
 
     return (
         <div className="contact">
           <div className="contact-header">
             <h1>Contact</h1>
-            <p>Don't be shy! Let me know whatever you'd like to know about my work</p>
+            <h2 className="subtitle">Don't be shy! Ask whatever you'd like to know about my work</h2>
           </div>
-          <div className="contact-header">
-            <p onClick={ this.getMyEmail }>Email me</p>
-            <p onClick={ this.getMyPhone }>Call me</p>
-            <span className="msg">{ msg }</span>
+          <div className="contact-body">
+            <p>Let's talk.</p>
+            <p>Let me know  your needs.</p>
+            <p>What's your project about?</p>
+            <p>We can decide together which technologies are the best solution.</p>
+            <p><strong>Through this buttons you can reach mi phone or my email.</strong></p>
+            <div className="button-container">
+              <button className="btn-contact" onClick={ this.getMyEmail }>Email me</button>
+              <button className="btn-contact" onClick={ this.getMyPhone }>Call me</button>
+            </div>
+            <div className="button-container">
+              <div className={'msg ' + type }>
+                <span>{ msg }</span>
+                <i><FontAwesomeIcon icon={faAngleUp} /></i>
+              </div>
+            </div>
           </div>
         </div>
      )

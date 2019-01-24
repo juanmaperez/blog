@@ -13,7 +13,7 @@ import './../styles/layout.scss'
 class Layout extends Component {
 
   state = {
-    status: '',
+    status: 'open',
     description: null,
   }
 
@@ -45,7 +45,7 @@ class Layout extends Component {
           <div className={'intro ' + status}>
             <div className="intro-container">
               <div className="row-top">
-
+                
               </div>
               <div className="row-center" >
                 <Menu status={status} handleContent={this.changeValueClose} handleDescription={this.updateDescription} location={this.props.location }/>
