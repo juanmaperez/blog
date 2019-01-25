@@ -1,48 +1,61 @@
-@font-face {
-  font-family: 'MFred';
-  src: url('/fonts/mfred/MFred.woff') format('woff2'),
-  url('/fonts/mfred/MFred.woff') format('woff'),
-  url('/fonts/mfred/MFred.eot') format('eot'),
-  url('/fonts/mfred/MFred.ttf') format('ttf');
-  font-weight: normal;
-}
-
-@import url('https://fonts.googleapis.com/css?family=Questrial');
-
-.header {
-  position: absolute;
-  z-index: 10;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  padding: 20px 0px 0px;
-  box-sizing: border-box;
-  
-  .sub-header{
-    position: relative;
-
-    .title {
-      font-size: 24px;
-      font-weight: 200;
-      text-transform: uppercase;
-      text-decoration:none;
+#index {
+  .title-container {
+    position: absolute;
+    top: 15px;
+    padding: 10px 45px;
+    h1 {
+      font-size: 130px;
       font-family: 'MFred' !important;
-      
-      .link {
-        width: 130px;
-        display: block;
-        color:#fff;
-        transform: rotate(-90deg);
-        position: relative;
-        top: 50px;
-        left: -45px;
-        text-align: center; 
-        &.open {
-          font-family: 'MFred';
-          
+      text-transform: uppercase;
+      color: salmon;
+      margin: 0px 0px;
+      letter-spacing: 1px;
+      line-height: 0.9;
+      text-indent: 0px;
+    }
+  }
+  .circular-wrapper {
+    margin: 0px auto;
+    border-radius: 50%;
+    background: #f1f1f1;
+    border: 1px solid transparent;
+
+    .circular {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      margin: 160px auto 20px;
+      width: 600px;
+      height: 600px;
+      background-color: rgba(255,255,255,1);
+      transition: background-color 9s linear;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      &.complete {
+        background-color: rgba(255,255,255,0);
+        background-image: url("https://juanmaperez.me/wp-content/uploads/2017/04/juanma_perez.jpg");
+        .counter, .message {
+          display: none
         }
-        &.open {color:#141414}
+        
+      }
+
+      .counter {
+        font-family: 'MFred';
+        font-size: 300px;
+        margin: 80px 0px 80px;
+        opacity: .1
+      }
+      .message {
+        font-family: 'Questrial';
+        font-style: oblique;
+        color: #666;
       }
     }
   }
+
 }

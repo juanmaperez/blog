@@ -4,16 +4,15 @@ import Header from './header'
 import Menu from './menu'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faArrowRight, faWindowClose } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 
-import './../styles/index.scss'
 import './../styles/layout.scss'
 
 class Layout extends Component {
 
   state = {
-    status: '',
+    status: 'open',
     description: null,
   }
 

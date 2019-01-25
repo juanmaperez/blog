@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
 import '../styles/contact.scss'
+
 class ContactPage extends Component {
   
   state = { msg : null, type: '' };
@@ -94,6 +95,7 @@ class ContactPage extends Component {
             <h2 className="subtitle">Don't be shy! Ask whatever you'd like to know about my work</h2>
           </div>
           <div className="contact-body">
+
             <p>Let's talk.</p>
             <p>Let me know  your needs.</p>
             <p>What's your project about?</p>

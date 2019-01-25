@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'MFred';
+  src: url('/fonts/mfred/MFred.woff') format('woff2'),
+  url('/fonts/mfred/MFred.woff') format('woff'),
+  url('/fonts/mfred/MFred.eot') format('eot'),
+  url('/fonts/mfred/MFred.ttf') format('ttf');
+  font-weight: normal;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+
+.header {
+  position: absolute;
+  z-index: 10;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 20px 0px 0px;
+  box-sizing: border-box;
+  
+  .sub-header{
+    position: relative;
+
+    .title {
+      font-size: 24px;
+      font-weight: 200;
+      text-transform: uppercase;
+      text-decoration:none;
+      font-family: 'MFred' !important;
+      
+      .link {
+        width: 130px;
+        display: block;
+        color:#fff;
+        transform: rotate(-90deg);
+        position: relative;
+        top: 50px;
+        left: -35px;
+        text-align: center; 
+        &.open {
+          font-family: 'MFred';
+          
+        }
+        &.open {color:#141414}
+      }
+    }
+  }
+}
