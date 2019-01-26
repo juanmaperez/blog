@@ -11,8 +11,7 @@ class IndexPage extends Component {
           <div className="title-container">
             <h1>Nice to meet you,</h1>
           </div>
-          <CircularDisplay></CircularDisplay>          
-   
+          <CircularDisplay></CircularDisplay>
         </div>
      )
   }

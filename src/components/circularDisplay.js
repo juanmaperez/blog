@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import TechDisplay from './techDisplay';
+
 
 class CircularDisplay extends Component {
   
@@ -88,6 +90,7 @@ class CircularDisplay extends Component {
             Click and hold
           </div>
         </div>
+        <TechDisplay complete={complete}></TechDisplay>
       </div>
     )
   }
