@@ -26,7 +26,7 @@ class CircularDisplay extends Component {
       circular.addEventListener("touchend", this.checkPressingDown, false);
     }
 
-    window.addEventListener('resize', (e) => {
+    window.addEventListener('resize', function(e){
       const wh = window.innerHeight;
       this.setState(()=>({
         wh
