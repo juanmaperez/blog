@@ -18,7 +18,7 @@ class CircularDisplay extends Component {
       wh
     }))
 
-    const circular = document.querySelector('.circular');
+    const circular = document.querySelector('.cover-me');
     if(circular){
       circular.addEventListener("mousedown", this.checkPressingDown, false);
       circular.addEventListener("mouseup", this.checkPressingDown, false);
@@ -82,7 +82,7 @@ class CircularDisplay extends Component {
 
     return(
       <div style={style} className="circular-wrapper">
-        <div width={wh/2} height={wh/2} className={"circular " + ready }>
+        <div className="cover-me" style={{'width': wh/1.5, 'height':wh/1.5, 'opacity': complete ? 0 : 1}} >
           <div className="counter">
             {counter}
           </div>
@@ -90,7 +90,9 @@ class CircularDisplay extends Component {
             Click and hold
           </div>
         </div>
-        <TechDisplay complete={complete}></TechDisplay>
+        <div style={{'width': wh/1.5, 'height':wh/1.5}} className={"circular " + ready }>
+          <TechDisplay size={wh/1.5} complete={complete}></TechDisplay>
+        </div>
       </div>
     )
   }
