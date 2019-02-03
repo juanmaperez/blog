@@ -55,13 +55,6 @@
         color: #666;
       }
 
-      .techs {
-        border: 1px solid salmon;
-        display: block;
-        height: 0;
-        z-index: 100;
-        width: 0;
-      }
     }
     .circular {
       border-radius: 50%;
@@ -69,44 +62,10 @@
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
-      .tech-icon {
-        position: absolute;
-        z-index: 2;
-        width: 100px;
-        height:100px;
-        overflow: hidden;
-        border-radius: 50%;
-        text-align: center;
-        vertical-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: -(100/2)px;
-        $angle: (360/9);
-        $rot: 0;
 
-        @for $i from 1 through 9 {
-          &:nth-of-type(#{$i}){
-            transform: 
-              rotate($rot * 1deg)
-              translate(600/ 2)
-              0 * -1deg
-          }
-        }
         img {
           width: 125%;
         }
-        // &.angular { top: 2.5%; left: 50%; margin-left: -50px}
-        // &.react { bottom: 2.5%; left: 50%; margin-left: -50px}
-        // &.github { top: 25%; left: 0px}
-        // &.js { top: 0%; right: 300px}
-        // &.node { top: 50%; right: 300px}
-        // &.wordpress { top: 40%; right: 300px}
-        // &.html5 { top: 15%; right: 50px}
-        // &.gatsby { top: 5%; right: 50px}
-        // &.css3 { top: 2%; right: 50px}
-
-      }
     }
 
 
