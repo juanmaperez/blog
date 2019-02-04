@@ -39,12 +39,13 @@ const TechIcon = styled.div`
 			display: block; 
 			max-width: 100%; 
 			border-radius: 50%;
-			filter: grayscale(100%);
 			transition: .15s;
+			filter: grayscale(0);
 			
 			&:hover,
 			&:active {
-				filter: grayscale(0);
+				box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, 0.1);
+				transition: box-shadow 0.3s ease-in-out;
 			}
 		}
 	`
@@ -61,16 +62,5 @@ class TechDisplay extends React.Component {
 		)
 	}
 }
-
-
-// const TechDisplay = (props) => {
-
-    
-//     return (
-//         props.complete && <div className="techs">
-//           { techs.map((icon)=> <div key={icon} className={`tech-icon ${icon}`} ><Image src={`/icons/${icon}.png`}/></div>)}
-//         </div>
-//     )
-// }
 
 export default TechDisplay;

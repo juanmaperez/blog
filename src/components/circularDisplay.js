@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TechDisplay from './techDisplay';
+import Techs from './techs';
 
 
 class CircularDisplay extends Component {
@@ -77,21 +78,31 @@ class CircularDisplay extends Component {
 
   render(){
     const {counter, wh, complete} = this.state;
-    const style = {'height': wh, 'width': wh}
+    const style = {'height': wh/1.4, 'width': wh/1.4}
     const ready = complete ? 'complete' : '';
 
     return(
-      <div style={style} className="circular-wrapper">
-        <div className="cover-me" style={{'width': wh/1.5, 'height':wh/1.5, 'opacity': complete ? 0 : 1}} >
-          <div className="counter">
-            {counter}
-          </div>
-          <div className="message">
-            Click and hold
-          </div>
+      <div className="circular-container">
+        <div className="description-left">
+          I'm Front End Developer <br/>
+          working at ColossusBets <br/>
+          born in Seville <br/>
+          built up in Barcelona <br/>
+          and based in London <br/>
+          <Techs></Techs>
         </div>
-        <div style={{'width': wh/1.5, 'height':wh/1.5}} className={"circular " + ready }>
-          <TechDisplay size={wh/1.5} complete={complete}></TechDisplay>
+        <div style={style} className="circular-wrapper">
+          <div className="cover-me" style={{'width': wh/1.42, 'height':wh/1.42, 'opacity': complete ? 0 : 1}} >
+            <div className="counter">
+              {counter}
+            </div>
+            <div className="message">
+              Click and hold
+            </div>
+          </div>
+          <div style={{'width': wh/1.42, 'height':wh/1.42}} className={"circular " + ready }>
+            <TechDisplay size={wh/1.42} complete={complete}></TechDisplay>
+          </div>
         </div>
       </div>
     )
