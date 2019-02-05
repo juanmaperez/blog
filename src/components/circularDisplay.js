@@ -31,10 +31,11 @@ class CircularDisplay extends Component {
 
     window.addEventListener('resize', (e) =>{
       const wh = window.innerHeight;
-      console.log(wh)
-      this.setState(()=>({
-        wh
-      }))
+      if(circular){
+        this.setState(()=>({
+          wh
+        }))
+      }
     })
   }
 

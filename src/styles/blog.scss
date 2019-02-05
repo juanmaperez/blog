@@ -1,18 +1,43 @@
+.title-container {
+  position: absolute;
+  top: 15px;
+  padding: 10px 45px;
+  h1 {
+    font-size: 130px;
+    font-family: 'MFred' !important;
+    text-transform: uppercase;
+    color: salmon;
+    margin: 0px 0px;
+    letter-spacing: 1px;
+    line-height: 0.9;
+    text-indent: 0px;
+  }
+}
+
 .post-list {
   font-family: 'Questrial', sans-serif;
   width: 100%;
   margin: 0px auto;
+  position: relative;
+  top: 140px;
+  padding: 20px 100px;
+  box-sizing: border-box;
+  background: #fff;
  
   div.post {
     border-bottom: 1px solid #000;  
-    padding: 50px 20px 50px 0px;
+    padding: 50px 70px 50px 30px;
     display: flex;
+    box-sizing: border-box;
     &:first-child{
-      padding: 10px 20px 50px 0px;
+      padding: 10px 70px 50px 30px;
+    }
+    &:last-child{
+      border-bottom: 0px;
     }
   
-    .title-container {
-      padding: 0px;
+    .post-title-container {
+      padding: 0px 25px 0px 0px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
