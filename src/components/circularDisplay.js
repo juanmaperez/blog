@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TechDisplay from './techDisplay';
+// import TechDisplay from './techDisplay';
 import Techs from './techs';
 
 
@@ -29,8 +29,9 @@ class CircularDisplay extends Component {
       circular.addEventListener("touchend", this.checkPressingDown, false);
     }
 
-    window.addEventListener('resize', function(e){
+    window.addEventListener('resize', (e) =>{
       const wh = window.innerHeight;
+      console.log(wh)
       this.setState(()=>({
         wh
       }))
@@ -89,7 +90,7 @@ class CircularDisplay extends Component {
           born in Seville <br/>
           built up in Barcelona <br/>
           and based in London <br/>
-          <Techs></Techs>
+          <Techs complete={complete}></Techs>
         </div>
         <div style={style} className="circular-wrapper">
           <div className="cover-me" style={{'width': wh/1.42, 'height':wh/1.42, 'opacity': complete ? 0 : 1}} >
@@ -97,11 +98,12 @@ class CircularDisplay extends Component {
               {counter}
             </div>
             <div className="message">
-              Click and hold
+              Click and hold <br/>
+              <strong>and find out more</strong>
             </div>
           </div>
           <div style={{'width': wh/1.42, 'height':wh/1.42}} className={"circular " + ready }>
-            <TechDisplay size={wh/1.42} complete={complete}></TechDisplay>
+            {/* <TechDisplay size={wh/1.42} complete={complete}></TechDisplay> */}
           </div>
         </div>
       </div>

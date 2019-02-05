@@ -33,8 +33,23 @@
     .techs-line {
       margin-top: 10px;
       img {
+        opacity:0;
         width: 60px;
         filter: grayscale(100%);
+      }
+      &.complete{
+        img{
+          opacity: 1;
+          &.angular { transition: opacity 2500ms linear}
+          &.react { transition: opacity 100ms linear}
+          &.github { transition: opacity 3500ms linear}
+          &.js { transition: opacity 4000ms linear}
+          &.gatsby { transition: opacity 5500ms linear}
+          &.css3 { transition: opacity 5000ms linear}
+          &.html5 { transition: opacity 3000ms linear}
+          &.wordpress { transition: opacity 4500ms linear}
+          &.node { transition: opacity 1500ms linear}
+        }
       }
     }
   }
@@ -72,13 +87,14 @@
       .counter {
         font-family: 'MFred';
         font-size: 300px;
-        margin: 80px 0px 80px;
+        margin: 0px;
         opacity: .1
       }
       .message {
         font-family: 'Questrial';
         font-style: oblique;
         color: #666;
+        text-align: center;
       }
 
     }
@@ -92,6 +108,7 @@
         img {
           width: 125%;
         }
+        
     }
 
 
