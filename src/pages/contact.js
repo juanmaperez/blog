@@ -93,9 +93,8 @@ class ContactPage extends Component {
           <div className="title-container">
             <h1>We should talk</h1>
           </div>        
-          <div className="contact-body">
+          <div className="contact-container">
 
-            <p>Let's talk.</p>
             <p>Let me know  your needs.</p>
             <p>What's your project about?</p>
             <p>We can decide together which technologies are the best solution.</p>

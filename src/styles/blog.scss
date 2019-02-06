@@ -4,7 +4,7 @@
   margin: 0px auto;
   position: relative;
   top: 140px;
-  padding: 20px 100px;
+  padding: 40px 100px 20px;
   box-sizing: border-box;
   background: #fff;
  
@@ -27,11 +27,11 @@
       justify-content: flex-end;
       width: 80%;
       box-sizing: border-box;
-      font-size: 48px;
       h2 { 
-        margin: 0px 0px; 
+        margin: -5px 0px;
         padding: 0px;
         font-weight: normal;
+        font-size: 90px;
       }
     }
     .date-container {
