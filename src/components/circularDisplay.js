@@ -90,7 +90,7 @@ class CircularDisplay extends Component {
             </div>
             <div className="message">
               Click and hold <br/>
-              <strong>and find out more</strong>
+              <strong>to find out more</strong>
             </div>
           </div>
           <div style={{'width': wh/1.42, 'height':wh/1.42}} className={"circular " + ready }>

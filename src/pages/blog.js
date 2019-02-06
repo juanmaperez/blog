@@ -7,13 +7,12 @@ class BlogPage extends Component {
 
   render(){
     return (
-        <div>
+        <div id="blog" className="page">
           <div className="title-container">
-            <h1>Blog</h1>
+            <h1>Thoughts from experience</h1>
           </div>
 
-          <div className="post-list">
-
+          <div className="blog-container post-list">
 
           {/* POst */}
 

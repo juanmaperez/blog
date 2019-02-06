@@ -287,6 +287,24 @@ body {
 
 }
 
+.page {
+  .title-container {
+    position: absolute;
+    top: 15px;
+    padding: 10px 45px;
+    h1 {
+      font-size: 130px;
+      font-family: 'MFred' !important;
+      text-transform: uppercase;
+      color: salmon;
+      margin: 0px 0px;
+      letter-spacing: 1px;
+      line-height: 0.9;
+      text-indent: 0px;
+    }
+  }  
+}
+
 
 .msg { 
     border : 1px solid white;

@@ -89,11 +89,10 @@ class ContactPage extends Component {
     const { msg, type } = this.state;
 
     return (
-        <div className="contact">
-          <div className="contact-header">
-            <h1>Contact</h1>
-            <h2 className="subtitle">Don't be shy! Ask whatever you'd like to know about my work</h2>
-          </div>
+        <div id="contact" className="page">
+          <div className="title-container">
+            <h1>We should talk</h1>
+          </div>        
           <div className="contact-body">
 
             <p>Let's talk.</p>

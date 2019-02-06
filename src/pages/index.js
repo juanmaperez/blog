@@ -8,7 +8,7 @@ class IndexPage extends Component {
 
   render(){
     return (
-        <div id="index">
+        <div id="index" className="page">
           <div className="title-container">
             <h1>Nice to meet you,</h1>
           </div>
