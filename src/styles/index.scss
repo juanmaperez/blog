@@ -15,7 +15,7 @@
     }
   }
 
-  .circular-container {
+  .index-container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -33,23 +33,8 @@
     .techs-line {
       margin-top: 10px;
       img {
-        opacity:0;
         width: 60px;
         filter: grayscale(100%);
-      }
-      &.complete{
-        img{
-          opacity: 1;
-          &.angular { transition: opacity 2500ms linear}
-          &.react { transition: opacity 100ms linear}
-          &.github { transition: opacity 3500ms linear}
-          &.js { transition: opacity 4000ms linear}
-          &.gatsby { transition: opacity 5500ms linear}
-          &.css3 { transition: opacity 5000ms linear}
-          &.html5 { transition: opacity 3000ms linear}
-          &.wordpress { transition: opacity 4500ms linear}
-          &.node { transition: opacity 1500ms linear}
-        }
       }
     }
   }

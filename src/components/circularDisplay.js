@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 // import TechDisplay from './techDisplay';
-import Techs from './techs';
 
 
 class CircularDisplay extends Component {
@@ -84,15 +83,6 @@ class CircularDisplay extends Component {
     const ready = complete ? 'complete' : '';
 
     return(
-      <div className="circular-container">
-        <div className="description-left">
-          I'm Front End Developer <br/>
-          working at ColossusBets <br/>
-          born in Seville <br/>
-          built up in Barcelona <br/>
-          and based in London <br/>
-          <Techs complete={complete}></Techs>
-        </div>
         <div style={style} className="circular-wrapper">
           <div className="cover-me" style={{'width': wh/1.42, 'height':wh/1.42, 'opacity': complete ? 0 : 1}} >
             <div className="counter">
@@ -107,7 +97,6 @@ class CircularDisplay extends Component {
             {/* <TechDisplay size={wh/1.42} complete={complete}></TechDisplay> */}
           </div>
         </div>
-      </div>
     )
   }
 }
