@@ -9,7 +9,9 @@
 
 @import url('https://fonts.googleapis.com/css?family=Questrial');
 
+.content {
 
+}
 #about {
   .about-container {
     font-family: 'Questrial', sans-serif;
@@ -17,7 +19,7 @@
     margin: 0px auto;
     position: relative;
     top: 140px;
-    padding: 40px 200px 20px;
+    padding: 100px 200px 20px;
     box-sizing: border-box;
     background: #fff;
 
@@ -26,7 +28,7 @@
       border-radius: 10px;
       margin-bottom: 40px;
       border: 1px solid #f1f1f1;
-      transition: box-shadow 0.3s ease-in-out, top 100ms linear;
+      transition: box-shadow 0.3s ease-in-out, left 2s linear, opacity 20000ms linear;
       &:hover {
         box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.08);      }
  
@@ -84,3 +86,5 @@
     }
   }
 }
+
+

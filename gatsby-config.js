@@ -3,6 +3,7 @@ module.exports = {
     title: 'Gatsby Default Starter',
   },
   plugins: [
+    'gatsby-plugin-page-transitions',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-remark',
     {

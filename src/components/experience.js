@@ -6,7 +6,6 @@ import { faSquare } from '@fortawesome/free-solid-svg-icons'
 
 const Experience = (props) => {
   const { node } = props;
-
   return (
   <div className={'experience-item ' + (node ? 'complete' : '')}>
     <div className="experience-header">
