@@ -1,0 +1,86 @@
+@font-face {
+  font-family: 'MFred';
+  src: url('/fonts/mfred/MFred.woff') format('woff2'),
+  url('/fonts/mfred/MFred.woff') format('woff'),
+  url('/fonts/mfred/MFred.eot') format('eot'),
+  url('/fonts/mfred/MFred.ttf') format('ttf');
+  font-weight: normal;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+
+
+#about {
+  .about-container {
+    font-family: 'Questrial', sans-serif;
+    width: 100%;
+    margin: 0px auto;
+    position: relative;
+    top: 140px;
+    padding: 40px 200px 20px;
+    box-sizing: border-box;
+    background: #fff;
+
+    div.experience-item {
+      padding: 10px 30px 30px;
+      border-radius: 10px;
+      margin-bottom: 40px;
+      border: 1px solid #f1f1f1;
+      transition: box-shadow 0.3s ease-in-out, top 100ms linear;
+      &:hover {
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.08);      }
+ 
+      .experience-header {
+        display: block;
+        margin: 10px 20px 20px;
+        display: flex;
+        align-items: center;
+     
+        .title {
+          text-transform: uppercase;
+          text-decoration:none;
+          font-family: 'MFred' !important;               
+          display: block;
+          font-size: 50px;
+          margin: 15px 5px 0px;
+          font-weight: normal;
+        }
+        .date {
+          font-family: 'Questrial' !important;
+          letter-spacing: 1px;    
+          line-height: 10px; 
+          text-indent: 2px;     
+          display: block;
+          font-size: 12px;
+          margin: 0px 5px 0px;
+          font-weight: normal;
+          color: #999;
+        }
+        img {
+          margin-top: 5px;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: 5px solid #fff;
+          display: inline-block;
+        }
+      }
+
+    
+
+      ul.tasks {
+        padding: 10px 30px 0px;
+        .task {
+          margin-bottom: 20px;
+          font-family: 'Questrial' !important;
+          svg {
+            font-size: 8px;
+            color: Salmon;
+            margin-bottom: 2px;
+          }
+        }
+      }
+      
+    }
+  }
+}
