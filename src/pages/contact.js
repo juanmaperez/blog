@@ -94,12 +94,9 @@ class ContactPage extends Component {
             <h1>We should talk</h1>
           </div>        
           <div className="contact-container">
-
-            <p>Let me know  your needs.</p>
-            <p>What's your project about?</p>
-            <p>We can decide together which technologies are the best solution.</p>
-            <p><strong>Through this buttons you can reach mi phone or my email.</strong></p>
-            <div className="button-container">
+            <p>Tell me about your project.</p>
+          </div>
+          <div className="button-container">
               <button className="btn-contact" onClick={ this.getMyEmail }>Email me</button>
               <button className="btn-contact" onClick={ this.getMyPhone }>Call me</button>
             </div>
@@ -109,7 +106,6 @@ class ContactPage extends Component {
                 <i><FontAwesomeIcon icon={faAngleUp} /></i>
               </div>
             </div>
-          </div>
         </div>
      )
   }
