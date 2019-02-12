@@ -72,8 +72,9 @@ class Menu extends Component {
 
   render(){
     const { active, options } = this.state;
-    let height = document.querySelector('.menu-link').offsetHeight;
-    console.log(height)
+    let height = 0;
+    let link = document.querySelector('.menu-link');
+    if(link){ height = link.offsetHeight}
     const styles = { top: -(height * active)}
     
     return (

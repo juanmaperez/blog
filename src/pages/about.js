@@ -2,12 +2,24 @@ import React, { Component} from 'react'
 import Experience from './../components/experience';
 import styled from 'styled-components'
 
-import {
-  CSSTransition,
-  TransitionGroup,
-} from 'react-transition-group';
-
-import './../styles/about.scss'
+const AboutPageView = styled.div`
+#about {
+  .about-container {
+    font-family: 'Questrial', sans-serif;
+    width: 100%;
+    max-width:1300px;
+    margin: 0px auto;
+    position: relative;
+    top: 140px;
+    padding: 100px 20px 20px;
+    box-sizing: border-box;
+    background: #fff;
+    @media(max-width:480px) {
+      padding: 50px 15px 20px;
+      top: 10px;
+    }
+  }
+`
 
 
 class AboutPage extends Component {
@@ -54,6 +66,7 @@ class AboutPage extends Component {
 
   render(){
     return (
+      <AboutPageView>
         <div id="about" className="page">
           <div className="title-container">
             <h1>Who I used to be</h1>
@@ -64,7 +77,8 @@ class AboutPage extends Component {
             </div>
           </div>      
         </div>
-     )
+      </AboutPageView>
+    )
   }
 }
 

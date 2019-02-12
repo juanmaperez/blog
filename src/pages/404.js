@@ -2,7 +2,6 @@ import React, { Component} from 'react'
 import Layout from '../components/layout'
 import { Link } from 'gatsby'
 
-import './../styles/index.scss'
 
 class NotFoundPage extends Component {
 
