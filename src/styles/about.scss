@@ -9,9 +9,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Questrial');
 
-.content {
 
-}
 #about {
   .about-container {
     font-family: 'Questrial', sans-serif;
@@ -22,6 +20,11 @@
     padding: 100px 200px 20px;
     box-sizing: border-box;
     background: #fff;
+    @media(max-width:480px) {
+      padding: 50px 15px 20px;
+      top: 10px;
+
+    }
 
     div.experience-item {
       padding: 10px 30px 30px;
@@ -29,6 +32,9 @@
       margin-bottom: 40px;
       border: 1px solid #f1f1f1;
       transition: box-shadow 0.3s ease-in-out, left 2s linear, opacity 20000ms linear;
+      @media(max-width:480px){
+        padding: 10px 0px 30px;
+      }
       &:hover {
         box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.08);      }
  
@@ -44,8 +50,11 @@
           font-family: 'MFred' !important;               
           display: block;
           font-size: 50px;
-          margin: 15px 5px 0px;
+          margin: 15px 10px 0px;
           font-weight: normal;
+          @media(max-width:480px) {
+            font-size: 40px;
+          }
         }
         .date {
           font-family: 'Questrial' !important;

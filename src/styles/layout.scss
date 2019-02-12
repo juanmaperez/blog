@@ -94,15 +94,24 @@ body {
           width: 100%;
           padding: 10px 20px;
           box-sizing: border-box;
+          @media(max-width: 480px){
+            padding: 0px;
+            display: none;
+          }
         }
         .row-center {
           flex: 1 0 100%;
           width: 100%;
-          padding: 10px 20px 0px;          
+          padding: 0px 20px 0px;          
           box-sizing: border-box;
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
+          @media(max-width:480px){
+            justify-content: flex-start;
+            padding: 32px 20px 0px;  
+            flex: 0 0 100%;       
+          }
           .menu {
             position: relative;
 
@@ -117,6 +126,11 @@ body {
               margin-left:-15px;
               z-index: 3;
               opacity: 1;
+              @media(max-width:480px){
+                top: auto;
+                bottom:20px;
+                left: 10px;
+              }
               i { font-size: 30px;}
               &:hover {
                 opacity: .7
@@ -144,6 +158,11 @@ body {
               position: relative;
               // comment to test
               overflow: hidden;
+
+              @media(max-width: 480px){
+                height: 150px;
+
+              }
            
               ul.menu-container {
                 position:relative;
@@ -154,6 +173,11 @@ body {
                   height: 500px;
                   padding-left: 0px;
                   padding-left: 0px;
+                  @media(max-width:480px){
+                    height: 150px; 
+                    padding-left: 30px;
+                    line-height: 150px;
+                  }
 
                   .link { 
                     display:inline-block;
@@ -167,7 +191,12 @@ body {
                     height: 300px;
                     font-family: 'MFred' !important;
                     text-transform: uppercase;
-                   
+                   @media(max-width:480px){
+                     font-size: 132px;
+                     height: 150px; 
+                     line-height: 100px;
+
+                   }
                     .icon {
                       font-size: 45px;
                       line-height: 0;
@@ -193,6 +222,9 @@ body {
           width: 100%;
           padding: 40px 40px 10px;
           box-sizing: border-box;
+          @media(max-width:480px){
+            padding: 80px 20px 20px;
+          }
 
           .intro-text {
             display: block;
@@ -203,6 +235,10 @@ body {
             font-family: 'Questrial', Helvetica, sans-serif;
             -webkit-text-stroke: 0.4px #141414;
             color:#fff;
+            @media(max-width: 480px){
+              max-width: 100%;;
+              margin-bottom: 60px;
+            }
           }
           .read-more {
             font-family: 'Questrial' !important;
@@ -292,6 +328,9 @@ body {
     position: absolute;
     top: 15px;
     padding: 10px 45px;
+    @media(max-width:480px){
+      position: relative;
+    }
     h1 {
       font-size: 130px;
       font-family: 'MFred' !important;

@@ -1,5 +1,6 @@
 import React, { Component} from 'react'
 import Experience from './../components/experience';
+import styled from 'styled-components'
 
 import {
   CSSTransition,
@@ -58,13 +59,9 @@ class AboutPage extends Component {
             <h1>Who I used to be</h1>
           </div> 
           <div className="about-container">
-          <TransitionGroup className='experience-list'>
-              {this.experiences.map((experience, index)=> (
-                <CSSTransition key={index} timeout={1000} classNames="fade">
-                  <Experience key={index} node={experience}/>
-                </CSSTransition>
-              ))}
-            </TransitionGroup>
+            <div className="experience-list">
+              {this.experiences.map((experience, index)=> <Experience key={index} node={experience}/>)}
+            </div>
           </div>      
         </div>
      )
