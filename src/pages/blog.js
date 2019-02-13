@@ -1,123 +1,42 @@
 import React, { Component} from 'react'
-import Image from '../components/image'
+import styled from 'styled-components'
+import PostItem from './../components/post';
 
-import './../styles/blog.scss'
+const BlogView = styled.div`
+  #blog {
+    .blog-container {
+      font-family: 'Questrial', sans-serif;
+      width: 100%;
+      margin: 0px auto;
+      position: relative;
+      top: 140px;
+      max-width: 1300px;
+      padding: 100px 20px 20px;
+      box-sizing: border-box;
+      background: #fff;
+    }
+  }
+`
 
 class BlogPage extends Component {
 
   render(){
     return (
+      <BlogView>
         <div id="blog" className="page">
           <div className="title-container">
             <h1>Thoughts from experience</h1>
           </div>
 
           <div className="blog-container post-list">
-
-          {/* POst */}
-
-            <div className="post">
-              <div className="date-container">
-                <div className="post-date">
-                  <span className="post-date-e day">20</span>
-                  <span className="post-date-e month">DEC</span>
-                  <span className="post-date-e year">2018</span>
-                </div>
-              </div>
-              <div className="post-title-container">
-                <h2 className="post-title">This is an example of post title for the list of posts</h2>
-              </div>
-        
-              <div className="image-container">
-                <Image src={'https://juanmaperez.me/wp-content/uploads/2017/04/juanma_perez.jpg'} className="post-image" />
-              </div>
-            </div>
-
-          {/* End POst */}
-             {/* POst */}
-
-             <div className="post">
-              <div className="date-container">
-                <div className="post-date">
-                  <span className="post-date-e day">20</span>
-                  <span className="post-date-e month">DEC</span>
-                  <span className="post-date-e year">2018</span>
-                </div>
-              </div>
-              <div className="post-title-container">
-                <h2 className="post-title">This is an example of post title for the list of posts</h2>
-              </div>
-        
-              <div className="image-container">
-                <Image src={'https://juanmaperez.me/wp-content/uploads/2017/04/juanma_perez.jpg'} className="post-image" />
-              </div>
-            </div>
-
-          {/* End POst */}
-             {/* POst */}
-
-             <div className="post">
-              <div className="date-container">
-                <div className="post-date">
-                  <span className="post-date-e day">20</span>
-                  <span className="post-date-e month">DEC</span>
-                  <span className="post-date-e year">2018</span>
-                </div>
-              </div>
-              <div className="post-title-container">
-                <h2 className="post-title">This is an example of post title for the list of posts</h2>
-              </div>
-        
-              <div className="image-container">
-                <Image src={'https://juanmaperez.me/wp-content/uploads/2017/04/juanma_perez.jpg'} className="post-image" />
-              </div>
-            </div>
-
-          {/* End POst */}
-             {/* POst */}
-
-             <div className="post">
-              <div className="date-container">
-                <div className="post-date">
-                  <span className="post-date-e day">20</span>
-                  <span className="post-date-e month">DEC</span>
-                  <span className="post-date-e year">2018</span>
-                </div>
-              </div>
-              <div className="post-title-container">
-                <h2 className="post-title">This is an example of post title for the list of posts</h2>
-              </div>
-        
-              <div className="image-container">
-                <Image src={'https://juanmaperez.me/wp-content/uploads/2017/04/juanma_perez.jpg'} className="post-image" />
-              </div>
-            </div>
-
-          {/* End POst */}
-             {/* POst */}
-
-             <div className="post">
-              <div className="date-container">
-                <div className="post-date">
-                  <span className="post-date-e day">20</span>
-                  <span className="post-date-e month">DEC</span>
-                  <span className="post-date-e year">2018</span>
-                </div>
-              </div>
-              <div className="post-title-container">
-                <h2 className="post-title">This is an example of post title for the list of posts</h2>
-              </div>
-        
-              <div className="image-container">
-                <Image src={'https://juanmaperez.me/wp-content/uploads/2017/04/juanma_perez.jpg'} className="post-image" />
-              </div>
-            </div>
-
-          {/* End POst */}
-
-
+            <PostItem></PostItem>
+            <PostItem></PostItem>
+            <PostItem></PostItem>
+            <PostItem></PostItem>
+            <PostItem></PostItem>
           </div>
         </div>
+      </BlogView>
      )
   }
 }
