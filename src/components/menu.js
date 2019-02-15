@@ -47,21 +47,20 @@ const MenuView = styled.div`
     }
   }
   .menu-wrapper {
-    min-height: 100%;
     height: 300px;
+    min-height: 100%;
     position: relative;
     // comment to test
     overflow: hidden;
 
     @media(max-width: 480px){
       height: 150px;
-
     }
  
     ul.menu-container {
       position:relative;
       transition: top 600ms linear, opacity 2s;
-      
+      top: ${props => props.top}px;
 
       .menu-link {
         cursor: pointer;
@@ -179,20 +178,22 @@ class Menu extends Component {
     }
   }
 
+  setTopPosition(){
+    const { active } = this.state
+    const height = window.innerHeight > 480 ? '500' : '150';
+    return (-(height * active))
+  } 
+
   render(){
     const { active, options } = this.state;
-    let height = null;
-    let link = document.querySelector('.menu-link');
-    if(link){ height = link.offsetHeight}
-    const styles = { top: -(height * active) }
     
     return (
-      <MenuView top={-(height * active)}>
+      <MenuView top={ this.setTopPosition() }>
         <div className="menu">
           { active < (options.length -1) &&  <span className="goUp" onClick={this.goUp}><FontAwesomeIcon icon={faAngleUp} /></span>}
           { active > 0 && <span className="goDown" onClick={this.goDown}><FontAwesomeIcon icon={faAngleDown} /></span>}
           <div className="menu-wrapper">
-            <ul style={styles} className="menu-container">
+            <ul className="menu-container">
               { options.map((option) => <li key={option.title} className="menu-link"><Link to={ option.to }/><span onClick={this.props.handleContent} className="link">{ option.title }<FontAwesomeIcon className="icon" icon={faArrowUp} /></span></li> )}  
             </ul>}
           </div>
