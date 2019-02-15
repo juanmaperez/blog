@@ -19,7 +19,7 @@ const WorkItemView = styled.div`
     right: 0;
 
     .containerFixed {
-      position:absolute;
+      position:fixed; //absolute
       left: 0;
       top: 0;
       bottom: 0;
