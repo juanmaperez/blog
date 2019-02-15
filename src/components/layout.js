@@ -12,7 +12,7 @@ import './../styles/layout.scss'
 class Layout extends Component {
 
   state = {
-    status: 'open',
+    status: '',
     description: null,
   }
 
@@ -20,10 +20,20 @@ class Layout extends Component {
 
   changeValueClose = () => {
     let { status } = this.state;
-    status = status === '' || status === 'close' ? 'open' : 'close'
+    status = status === '' || status === 'close' ? 'open' : 'close';
     this.setState(()=> ({
       status
     }))
+  }
+
+  updateHtmlClass(){
+    const { status } = this.state;
+    const html = document.querySelector('html');
+    if (status === 'open'){
+      html.classList.add('open')
+    } else {
+      html.classList.remove('open')
+    }
   }
 
   updateDescription = (description) => {
