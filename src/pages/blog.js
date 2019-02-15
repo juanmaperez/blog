@@ -9,9 +9,9 @@ const BlogView = styled.div`
       width: 100%;
       margin: 0px auto;
       position: relative;
-      top: 140px;
       max-width: 1300px;
-      padding: 100px 20px 20px;
+      margin-top: 140px;
+      padding: 0px 20px 20px;
       box-sizing: border-box;
       background: #fff;
     }

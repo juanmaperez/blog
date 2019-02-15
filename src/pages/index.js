@@ -11,7 +11,6 @@ const IndexView = styled.div`
       flex-direction: row;
       justify-content: space-around;
       position: relative;
-      top: 140px;
       padding: 20px 40px
     }
     .description-left {

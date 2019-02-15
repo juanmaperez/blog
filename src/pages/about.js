@@ -4,18 +4,20 @@ import styled from 'styled-components'
 
 const AboutPageView = styled.div`
 #about {
+  background: #fff;
+  
   .about-container {
     font-family: 'Questrial', sans-serif;
     width: 100%;
     max-width:1300px;
     margin: 0px auto;
     position: relative;
-    top: 140px;
-    padding: 100px 20px 20px;
+    margin-top:100px;
+    padding: 0px 20px 20px;
     box-sizing: border-box;
-    background: #fff;
     @media(max-width:480px) {
-      padding: 50px 15px 20px;
+      margin-top:50px;
+      padding: 0px 15px 20px;
       top: 10px;
     }
   }

@@ -6,7 +6,6 @@ const ContactView = styled.div`
   #contact {
     .contact-container {
       position: relative;
-      top: 140px;
       padding: 20px 40px;
 
       p {

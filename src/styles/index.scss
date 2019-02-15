@@ -17,14 +17,12 @@ ul, ol {
 }
 
 html{
-  overflow:hidden;
   font-family: Helvetica, sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   min-height:100%;
   width:100%;
   background: #141414;
-  position:relative;
 }
 body {
   overflow:hidden;
@@ -39,7 +37,7 @@ body {
 
 .page {
   .title-container {
-    position: absolute;
+    position: relative;
     top: 15px;
     padding: 10px 45px;
     z-index: 10;
