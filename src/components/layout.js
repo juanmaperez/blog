@@ -16,14 +16,16 @@ class Layout extends Component {
     description: null,
   }
 
-  componentDidMount(){}
+  componentDidMount(){
+    this.updateHtmlClass()
+  }
 
   changeValueClose = () => {
     let { status } = this.state;
     status = status === '' || status === 'close' ? 'open' : 'close';
-    this.setState(()=> ({
+    this.setState({
       status
-    }))
+    }, this.updateHtmlClass)
   }
 
   updateHtmlClass(){

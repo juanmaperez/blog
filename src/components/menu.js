@@ -61,11 +61,7 @@ const MenuView = styled.div`
     ul.menu-container {
       position:relative;
       transition: top 600ms linear, opacity 2s;
-      top:  ${props => props.top }px;
-      display:none;
-      display:  ${props => props? 'block' : 'none' };
-
-
+      
 
       .menu-link {
         cursor: pointer;
@@ -185,10 +181,10 @@ class Menu extends Component {
 
   render(){
     const { active, options } = this.state;
-    let height = 0;
+    let height = null;
     let link = document.querySelector('.menu-link');
     if(link){ height = link.offsetHeight}
-    const styles = { top: -(height * active)}
+    const styles = { top: -(height * active) }
     
     return (
       <MenuView top={-(height * active)}>
@@ -196,7 +192,7 @@ class Menu extends Component {
           { active < (options.length -1) &&  <span className="goUp" onClick={this.goUp}><FontAwesomeIcon icon={faAngleUp} /></span>}
           { active > 0 && <span className="goDown" onClick={this.goDown}><FontAwesomeIcon icon={faAngleDown} /></span>}
           <div className="menu-wrapper">
-            <ul styles={styles} className="menu-container">
+            <ul style={styles} className="menu-container">
               { options.map((option) => <li key={option.title} className="menu-link"><Link to={ option.to }/><span onClick={this.props.handleContent} className="link">{ option.title }<FontAwesomeIcon className="icon" icon={faArrowUp} /></span></li> )}  
             </ul>}
           </div>
