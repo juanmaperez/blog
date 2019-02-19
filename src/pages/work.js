@@ -3,6 +3,12 @@ import styled from 'styled-components'
 
 import WorkItem from './../components/workItem' 
 
+const works = [
+  { title: 'Umaicha', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a nisl ac ligula volutpat tincidunt.', bg: '255, 255, 255', opacity: '0', img: 'umaicha'},
+  { title: 'Colossus Bets', description: 'Ut in gravida purus. Etiam et congue lacus, et consectetur arcu. Donec est justo, interdum sit amet.', bg: '255,175,32', opacity: '1', img: 'colossus'},
+  { title: 'Australis', description: 'Maecenas justo nisi, condimentum eu eros sit amet, pellentesque maximus dolor. Quisque facilisis orci nisi.', bg: '16,69,91', opacity: '1',  img: 'umaicha'},
+  { title: 'Summa', description: 'Quisque in faucibus risus, eget ultrices sapien. Donec euismod consequat nibh non aliquet. ', bg: '255,115,80', opacity: '1', img: 'colossus'}]
+
 const WorkPageView = styled.div`
 #work {
   .work-container {
@@ -34,10 +40,7 @@ class WorkPage extends Component {
             <h1>What I did before</h1>
           </div>  
           <div className="work-container">
-            <WorkItem bg={'255, 255, 255'} opacity={'0'} height={height} width={width}></WorkItem>
-            <WorkItem bg={'255,175,32'} opacity={'1'} height={height} width={width}></WorkItem>
-            <WorkItem bg={'16,69,91'} opacity={'1'} height={height} width={width}></WorkItem>
-            <WorkItem bg={'255,115,80'} opacity={'1'} height={height} width={width}></WorkItem>
+            { works.map(work=><WorkItem key={work.title} work={work} height={height} width={width}></WorkItem> )}
           </div>        
         </div>
       </WorkPageView>

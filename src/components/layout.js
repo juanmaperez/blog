@@ -12,12 +12,12 @@ import './../styles/layout.scss'
 class Layout extends Component {
 
   state = {
-    status: '',
+    status: 'close',
     description: null,
   }
 
   componentDidMount(){
-    this.updateHtmlClass()
+   this.changeValueClose()
   }
 
   changeValueClose = () => {
