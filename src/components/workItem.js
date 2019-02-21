@@ -12,7 +12,7 @@ const WorkItemView = styled.div`
   box-sizing:border-box;
   overflow:hidden;
   background: rgba(${ props => props.work.bg }, ${ props => props.work.opacity } );
-  border-top: 100px solid rgb(${ props => props.work.bg });
+  border-bottom: 100px solid rgb(${ props => props.work.bg });
 
   .work-wrapper {
     position: absolute;
@@ -49,7 +49,7 @@ const WorkItemView = styled.div`
       flex-direction:row;
       justify-content:center;
       align-items:center;
-      width:600px;
+      width:700px;
       height:auto;
       position: absolute;
       top: 40%;
@@ -71,7 +71,7 @@ const WorkItemView = styled.div`
       border-radius: 5px;
       transition: box-shadow 0.3s ease-in-out;
       padding: 30px 20px;
-      box-shadow: ${props => props.work.opacity !== '1' ? "0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.1)" : "0 0 1px rgba(255, 255, 255, 0.5), 0 2px 4px rgba(255, 255, 255, 0.4)"}; 
+      box-shadow: ${props => props.work.opacity !== '1'? "0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.1)" : "0 0 1px rgba(255, 255, 255, 0.5), 0 2px 4px rgba(255, 255, 255, 0.4)"}; 
 
       &:hover {
       }
@@ -92,13 +92,13 @@ const WorkItemView = styled.div`
       }
 
       ul {
-        padding: 10px 30px 0px;
+        padding: 10px 20px 0px;
         li {
           margin-bottom: 20px;
           font-family: 'Questrial' !important;
           svg {
             font-size: 8px;
-            color: Salmon;
+            color: rgb(${ props => props.work.bg === '255, 255, 255' ? '0, 0, 0': props.work.bg });
             margin-bottom: 2px;
           }
         }
