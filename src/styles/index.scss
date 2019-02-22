@@ -56,3 +56,20 @@ body {
     }
   }  
 }
+
+
+.wrapper {
+  &.open {
+    .experience-item {
+      opacity: 0;
+      animation-name: fromLeft;
+      animation-duration: 2s;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;    }
+  }
+}
+
+@keyframes fromLeft{
+  0% { left: 100px; opacity: 0}
+  100% { left: 0px; opacity: 1}
+}

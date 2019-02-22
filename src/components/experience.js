@@ -6,17 +6,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquare } from '@fortawesome/free-solid-svg-icons'
 
 const ExperienceView = styled.div`
-  div.experience-item {
+
+  .experience-item {
+    position: relative;
     padding: 10px 30px 30px;
     border-radius: 10px;
     margin-bottom: 40px;
     border: 1px solid #f1f1f1;
-    transition: box-shadow 0.3s ease-in-out, left 2s linear, opacity 20000ms linear;
+    transition: box-shadow 0.3s ease-in-out,transform 200ms linear;
+
     @media(max-width:480px){
       padding: 10px 0px 30px;
     }
     &:hover {
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.08);      }
+      transform: scale(1.04);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.08);      
+    }
 
     .experience-header {
       display: block;
@@ -64,6 +69,7 @@ const ExperienceView = styled.div`
       .task {
         margin-bottom: 20px;
         font-family: 'Questrial' !important;
+        line-height:1.5;
         svg {
           font-size: 8px;
           color: Salmon;
@@ -71,7 +77,6 @@ const ExperienceView = styled.div`
         }
       }
     }
-    
   }
 `
 
@@ -79,7 +84,7 @@ const Experience = (props) => {
   const { node } = props;
   return (
   <ExperienceView>
-    <div className={'experience-item ' + (node ? 'complete' : '')}>
+    <div className="experience-item">
       <div className="experience-header">
         <Image name={node.title} src={`/icons/${node.icon}`} />
         <div>
