@@ -13,7 +13,8 @@ const ExperienceView = styled.div`
     border-radius: 10px;
     margin-bottom: 40px;
     border: 1px solid #f1f1f1;
-    transition: box-shadow 0.3s ease-in-out,transform 200ms linear;
+    animation-delay: ${props => props.index}s;
+    transition: box-shadow 0.3s ease-in-out,transform 100ms linear;
 
     @media(max-width:480px){
       padding: 10px 0px 30px;
@@ -83,7 +84,7 @@ const ExperienceView = styled.div`
 const Experience = (props) => {
   const { node } = props;
   return (
-  <ExperienceView>
+  <ExperienceView {...props}>
     <div className="experience-item">
       <div className="experience-header">
         <Image name={node.title} src={`/icons/${node.icon}`} />

@@ -143,7 +143,6 @@ class ContactForm extends Component {
     if(!this.timeOut){
       this.timeOut = setTimeout(() => this.setState(()=>({ msg, type })), 5000)
     }
-    console.log(this.timeOut)
   }
 
   render(){

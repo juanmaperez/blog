@@ -9,7 +9,6 @@ const WorkItemView = styled.div`
   position: relative;
   width: ${ props => props.width }px;
   height: ${ props => props.height }px;
-  box-sizing:border-box;
   overflow:hidden;
   background: rgba(${ props => props.work.bg }, ${ props => props.work.opacity } );
   border-bottom: 100px solid rgb(${ props => props.work.bg });
@@ -53,7 +52,7 @@ const WorkItemView = styled.div`
       height:auto;
       position: absolute;
       top: 40%;
-      right: 400px;
+      left: 45%;
       text-align: center;
       margin-top:-200px;
       border-radius: 5px;

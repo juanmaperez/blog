@@ -40,7 +40,7 @@ class WorkPage extends Component {
             <h1>What I did before</h1>
           </div>  
           <div className="work-container">
-            { works.map(work=><WorkItem key={work.title} work={work} height={height} width={width}></WorkItem> )}
+            { works.map((work, index)=><WorkItem key={work.title} work={work} height={height} width={width}></WorkItem> )}
           </div>        
         </div>
       </WorkPageView>

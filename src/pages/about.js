@@ -75,7 +75,7 @@ class AboutPage extends Component {
           </div> 
           <div className="about-container">
             <div className="experience-list">
-              {this.experiences.map((experience, index)=> <Experience key={index} node={experience}/>)}
+              {this.experiences.map((experience, index)=> <Experience key={index} index={(index + 1)} node={experience}/>)}
             </div>
           </div>      
         </div>
