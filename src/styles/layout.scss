@@ -138,10 +138,8 @@
       .close-btn {
         display:none;
         position: fixed;
-        top: 160px;
-        left: 6px;
-        transform: rotate(-90deg);
-        transition: bottom 200ms linear;
+        top: 30px;
+        right: 20px;
       }
 
       &.open {
@@ -153,18 +151,15 @@
           font-family: 'Questrial' !important;
           display: block;
           text-align: center;
-          font-size: 16px;
           cursor: pointer;
-          color: #141414;
           z-index: 20;
-          font-weight: bolder;
-          top: auto;
-          bottom: 40px;
-          
+          font-weight: lighter;
+          color: #141414;
+
           span {
             margin-left: 5px;
-            font-size: 16px;
-       
+            font-size: 20px;
+           
 
            * {cursor: pointer;}
           }

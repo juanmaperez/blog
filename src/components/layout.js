@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Header from './header'
 import Menu from './menu'
+import ContactForm from './contactForm'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 
 import './../styles/layout.scss'
@@ -12,12 +13,12 @@ import './../styles/layout.scss'
 class Layout extends Component {
 
   state = {
-    status: 'close',
+    status: 'open',
     description: null,
   }
 
   componentDidMount(){
-   this.changeValueClose()
+   this.updateHtmlClass()
   }
 
   changeValueClose = () => {
@@ -54,6 +55,7 @@ class Layout extends Component {
         
         <div className="main-page">
           <div className={'intro ' + status}>
+            <ContactForm></ContactForm>
             <div className="intro-container">
               <div className="row-top">
                 
@@ -73,8 +75,7 @@ class Layout extends Component {
           <div className={'content ' + status}>
             <div className="close-btn" onClick={this.changeValueClose}>
               <span onClick={this.changeValueClose}>
-                close
-                {/* <FontAwesomeIcon className="icon" icon={faWindowClose} /> */}
+                <FontAwesomeIcon className="icon" icon={faTimes} />
               </span>
             </div>
             <div className='content-container'>

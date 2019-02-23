@@ -3,49 +3,88 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { navigate } from 'gatsby-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDown, faAngleUp, faArrowUp } from '@fortawesome/free-solid-svg-icons'
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 
 const MenuView = styled.div`
 .menu {
   position: relative;
+  .mouse {
+    display: block;
+    width: 18px;
+    height: 28px;
+    border-radius: 11px 11px 15px 15px;
+    border: 1px solid #fff;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    margin-top: -24px;
+    z-index: 9999;
 
-  .goUp {
-    color:#fff;
-    cursor: pointer;
-    position: absolute;
-    top:0px;
-    left: 10px;
-    width: 30px;
-    text-align: center;
-    margin-left:-15px;
-    z-index: 3;
-    opacity: 1;
-    @media(max-width:480px){
-      top: auto;
-      bottom:20px;
-      left: 10px;
+    @media(max-width: 480px){
+      position: fixed;
+      top: 240px;
+      left: 20px;
+      right: auto; 
+      width: 15px;
+      height: 22px;
     }
-    i { font-size: 30px;}
-    &:hover {
-      opacity: .7
+
+    span.scroll {
+      display: block;
+      margin: 6px auto;
+      width: 1px;
+      height: 3px;
+      border-radius: 4px;
+      background: #fff;
+      border: 1px solid transparent;
+      -webkit-animation-duration: 2s;
+      animation-duration: 2s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+      -webkit-animation-name: scroll;
+      animation-name: scroll;
+    }
+    
+    .goUp {
+      background:#fff;
+      position: absolute;
+      top:-8px;
+      left: 50%;
+      width: 1px;
+      height: 8px;
+      z-index: 3;
+      opacity: 0.3 !important;
+    }
+    .goDown {
+      background:#fff;
+      position: absolute;
+      bottom:-8px;
+      left: 50%;
+      width: 1px;
+      height: 8px;
+      z-index: 3;
+      opacity: 0.3 !important;
     }
   }
-  .goDown {
-    color:#fff;
-    cursor: pointer;
-    position: absolute;
-    bottom: 0px;
-    left: 10px;
-    width: 30px;
-    text-align: center;
-    margin-left:-15px;
-    z-index: 15;
-    opacity: 1;
-    i { font-size: 30px; }
-    &:hover {
-      opacity: .7
+  
+
+  @keyframes scroll {
+    0% {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translateY(15px);
+      -ms-transform: translateY(15px);
+      transform: translateY(15px);
     }
   }
+
   .menu-wrapper {
     height: 300px;
     min-height: 100%;
@@ -120,7 +159,6 @@ class Menu extends Component {
       { title:'About', to:'/about', color:'', description: 'About, whatever asdjlks alkdfk as asdf sadf sdf asdfsdfasd sdfsd asdfsdf saddsfdf' },
       { title:'Work', to:'/work', color:'' , description: 'Work, whatever asdjlks alkdfk as asdf sadf sdf asdfsdfasd sdfsd asdfsdf saddsfdf' },
       { title:'Blog', to:'/blog', color:'', description: 'Blog, whatever asdjlks alkdfk as asdf sadf sdf asdfsdfasd sdfsd asdfsdf saddsfdf' },
-      { title:'Contact', to:'/contact', color:'' , description: 'Contact, whatever asdjlks alkdfk as asdf sadf sdf asdfsdfasd sdfsd asdfsdf saddsfdf' }
     ],
     'active': 0,
   } 
@@ -180,7 +218,7 @@ class Menu extends Component {
 
   setTopPosition(){
     const { active } = this.state
-    const height = window.innerHeight > 480 ? '500' : '150';
+    const height = window.innerWidth > 480 ? '500' : '150';
     return (-(height * active))
   } 
 
@@ -190,8 +228,11 @@ class Menu extends Component {
     return (
       <MenuView top={ this.setTopPosition() }>
         <div className="menu">
-          { active < (options.length -1) &&  <span className="goUp" onClick={this.goUp}><FontAwesomeIcon icon={faAngleUp} /></span>}
-          { active > 0 && <span className="goDown" onClick={this.goDown}><FontAwesomeIcon icon={faAngleDown} /></span>}
+          <div className="mouse">
+            <span className="scroll"></span>
+            { active < (options.length -1) &&  <span className="goUp" onClick={this.goUp}></span>}
+            { active > 0 && <span className="goDown" onClick={this.goDown}></span>}
+          </div>
           <div className="menu-wrapper">
             <ul className="menu-container">
               { options.map((option) => <li key={option.title} className="menu-link"><Link to={ option.to }/><span onClick={this.props.handleContent} className="link">{ option.title }<FontAwesomeIcon className="icon" icon={faArrowUp} /></span></li> )}  

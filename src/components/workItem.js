@@ -83,6 +83,7 @@ const WorkItemView = styled.div`
         font-size: 50px;
         margin: 10px 0px;
         font-weight: normal;
+        letter-spacing: 1px;
       }
       p {
         font-family: 'Questrial';

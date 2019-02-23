@@ -2,66 +2,55 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 const ContactFormView = styled.div`
-  .button-container { 
+  .button-container {
+    z-index: 10000000;
+    position: fixed; 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
-    padding-top: 15px;
-
+    height: 50px;
+    top: 30px;
+    right: 20px;
     .btn-contact {
+      text-align: right;
       flex: 1;
-      min-height:100px;
       font-family: 'Questrial', Helvetica, sans-serif;
-      font-size: 24px;
-      background: #fff;
-      margin: 80px 0px 0px 0px;
-      box-shadow: #fff;
+      font-size: 14px;
+      color: #fff;
+      background: transparent;
       -webkit-appearance: none;
-      border:1px solid #f1f1f1;
-      border-radius: 5px;
-      transition: box-shadow 0.3s ease-in-out, top 100ms linear;
       cursor: pointer;
+      border: 0px;
       position: relative;
       top: 0;
-
-      &:hover{
-        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 1px 0 1px rgba(0, 0, 0, 0.08);      }
-      }
     }
-    .msg {
-      flex: 1;
-      padding:30px;
-      max-height: 80px;
-      box-sizing:border-box;
-      display: block;
-      opacity: 0;
-      flex-basis:100%;
-      width: 100%;
-      color: #999;
-      position: relative;
-      transition: all 300ms linear;
-      text-align: center;
-      
-      i {
-        font-size: 14px;
-        transition: left 400ms linear;
-        left:50%;
-        color: #f1f1f1;
-        background:#fff;
-        position: absolute;
-        top: -11px;
-      }
-      &.Email {
-        opacity:1;
-        i { left:25% }
-      }
-      &.Phone {
-        opacity:1;
-        i { left:75% }
-      }
+  }
+  .msg {
+    letter-spacing:1px;
+    flex: 1;
+    padding:10px;
+    max-height: 40px;
+    background: #fff;
+    box-sizing:border-box;
+    display: block;
+    opacity: 0 !important;
+    font-size: 12px;
+    flex-basis:100%;
+    width: 100%;
+    color: #000;
+    position: fixed;
+    bottom: 0px;
+    transition: all 300ms linear;
+    text-align: center;
+
+    &.Email {
+      opacity:1 !important;
+    }
+    &.Phone {
+      opacity:1 !important;
     }
   }
 `
@@ -141,7 +130,7 @@ class ContactForm extends Component {
     this.timeOut = null;
 
     if(!this.timeOut){
-      this.timeOut = setTimeout(() => this.setState(()=>({ msg, type })), 5000)
+      this.timeOut = setTimeout(() => this.setState(()=>({ msg, type })), 4000)
     }
   }
 
@@ -151,14 +140,11 @@ class ContactForm extends Component {
     return(
       <ContactFormView>
         <div className="button-container">
-          <button className="btn-contact" onClick={ this.getMyEmail }>Email me</button>
-          <button className="btn-contact" onClick={ this.getMyPhone }>Call me</button>
+          <button className="btn-contact" onClick={ this.getMyEmail }><FontAwesomeIcon icon={faEnvelope}/></button>
+          <button className="btn-contact" onClick={ this.getMyPhone }><FontAwesomeIcon icon={faPhone}/></button>
         </div>
-        <div className="button-container">
-          <div className={'msg ' + type }>
-            <span>{ msg }</span>
-            <i><FontAwesomeIcon icon={faAngleUp} /></i>
-          </div>
+        <div className={'msg ' + type }>
+          <span>{ msg }</span>
         </div>
       </ContactFormView>
     )
