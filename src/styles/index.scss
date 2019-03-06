@@ -40,9 +40,7 @@ body {
     padding: 10px 45px;
     z-index: 10;
     box-sizing: border-box;
-    @media(max-width:480px){
-      position: relative;
-    }
+   
     h1 {
       font-size: 130px;
       font-family: 'MFred' !important;
@@ -52,6 +50,12 @@ body {
       letter-spacing: 1px;
       line-height: 0.9;
       text-indent: 0px;
+    }
+    @media(max-width:480px){
+      position: relative;
+      h1{
+        font-size: 60px;
+      }
     }
   }  
 }

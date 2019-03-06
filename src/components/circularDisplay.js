@@ -2,6 +2,14 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 // import TechDisplay from './techDisplay';
 const CircularView = styled.div`
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: ${props => props.height}px;
+  box-sizing: border-box;
+  overflow: hidden;
+
   .curtain {
     position: absolute;
     display: flex;
@@ -14,7 +22,7 @@ const CircularView = styled.div`
     height: 100%;
     background: #fff;
     border: 1px solid transparent;
-
+    transition: width 1ms linear;
     &.over {
       z-index: 2;
       .counter {
@@ -27,11 +35,20 @@ const CircularView = styled.div`
         font-family: 'Mfred' !important;
         color: salmon;
         z-index:3;
+        @media(max-width:480px){
+          font-size: 19vh;
+          top: auto;
+          bottom:10px;
+          right: 40px;
+          left:auto;
+        }
       }
       .text-left {
         p {
           color: #141414;
           opacity: 0.8;
+          -webkit-text-stroke: 2px #141414;
+
         }
       }
     }
@@ -43,30 +60,42 @@ const CircularView = styled.div`
         top: 50%;
         left:50%;
         text-transform: uppercase;
-        font-size: 240px;
-        margin-top: -80px;
+        font-size: 16vh;
         font-family: 'Mfred' !important;
         color: rgba(0,0,0, 0.2);
         z-index:3;
-
+        @media(max-width:480px){
+          font-size: 19vh;
+          top: auto;
+          bottom:10px;
+          right: 40px;
+          left:auto;
+        }
       }
     }
 
     .text-left {
       flex: 1;
       position: fixed;
+      top:160px;
       left: 40px;
-      top: 160px;
       z-index: 2;
       p {
-        font-size: 20vw;
-        line-height: 27vh;
+        font-size: 24vw;
+        line-height: 80%;
         text-indent: -13px;
         margin: 0px;
         font-weight: bolder;
         padding: 0px;
         -webkit-text-stroke: 2px #141414;
         color: #fff;
+      }
+      @media(max-width:480px){
+        left:30px;
+        top:140px;
+        p {
+          font-size: 39vw;
+        }  
       }
     }
     .circular-wrapper {
@@ -75,6 +104,16 @@ const CircularView = styled.div`
       top: 240px;
       border-radius: 50%;
       flex: 1;
+      @media(max-width:480px){
+        top: auto;
+        bottom: -10px;
+        left:-10px;
+        right: auto;
+        margin-right: -60px;
+        p {
+          font-size: 30vw;
+        }  
+      }
 
       .cover-me {
         border-radius: 50%;
@@ -85,19 +124,20 @@ const CircularView = styled.div`
         background-image: url("static/jp_brush.png");
         background-size: cover;
         background-position: center center;
-        width: 70vh;
-        height: 70vh;
+        width: 45vw;
+        height: 45vw;
       }
         
       .circular {
         border-radius: 50%;
-        background-image: url("static/jp_normal.png");
+        background-image: url("static/jp_brush_red.png");
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
         margin-top: -2px;
-        width: 70vh;
-        height: 70vh;
+        width: 45vw;
+        height: 45vw;
+
       }
     }
   }
@@ -106,10 +146,27 @@ const CircularView = styled.div`
     position:absolute;
     z-index: 1000;
     bottom: 15px;
+    left: 50%;
+    text-align: center;
     font-family: 'Questrial';
     font-style: oblique;
     color: #999;
     text-align: center;
+    font-size:12px;
+    width: 100px;
+    margin-left: -65px;
+    display: flex;
+    justify-content-center;
+    text-align: center;
+    p {
+      text-align: center;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      width: 100%;
+    }
+    @media(max-width:480px){
+      bottom: 0px;
+    }
 
     .mouse {
       display: block;
@@ -141,10 +198,11 @@ const CircularView = styled.div`
         -webkit-animation-name: scroll;
         animation-name: scroll;
       }
-  }
- 
+    }
+
 
   }
+
 `
 
 class CircularDisplay extends Component {
@@ -152,17 +210,12 @@ class CircularDisplay extends Component {
   pressHoldDuration = 100;
   timer;
   state = {
-    wh: 0,
     counter: 0,
     complete: false
   }
 
   componentDidMount(){
-    const wh = window.innerHeight;
-    this.setState(()=>({
-      wh
-    }))
-
+    
     const circular = document.querySelector('.index-container');
     if(circular){
       circular.addEventListener("mousedown", this.checkPressingDown, false);
@@ -172,15 +225,6 @@ class CircularDisplay extends Component {
       circular.addEventListener("touchstart", this.checkPressingDown, false);
       circular.addEventListener("touchend", this.checkPressingDown, false);
     }
-
-    window.addEventListener('resize', (e) =>{
-      const wh = window.innerHeight;
-      if(circular){
-        this.setState(()=>({
-          wh
-        }))
-      }
-    })
   }
 
   checkPressingDown = (e) => {
@@ -219,6 +263,7 @@ class CircularDisplay extends Component {
     complete = true;
     clearInterval(this.timer);
     this.setState(()=>({ complete }))
+    this.props.handleComplete()
   }
  
 
@@ -226,42 +271,44 @@ class CircularDisplay extends Component {
     const {counter, complete} = this.state;
     const style = {'width': (counter + '%')}
 
+    const height = window.innerHeight;
+
     return(
-      <CircularView>
-        <div className="message-btn">
-          { complete &&  <div className="mouse"><span className="scroll"></span></div>}
-          { !complete && 'Click and hold'}
-        </div>
-        <div style={style} className="curtain over">
-          <div className="text-left">
-            <p>DEV</p>
-            <p>ELO</p>
-            <p>PER</p>
+      <CircularView height={(height - 140)}>
+          <div className="message-btn">
+            { complete &&  <div className="mouse"><span className="scroll"></span></div>}
+            { !complete && <p>Click and hold</p>}
           </div>
-          {!complete && <div class="counter">
-            {counter}
-          </div>}
-          <div className="circular-wrapper">
-            <div className="circular">
+          <div style={style} className="curtain over">
+            <div className="text-left">
+              <p>DEV</p>
+              <p>ELO</p>
+              <p>PER</p>
+            </div>
+            {!complete && <div className="counter">
+              {counter}
+            </div>}
+            <div className="circular-wrapper">
+              <div className="circular">
+              </div>
+            </div>
+            
+          </div>
+          <div className="curtain below">
+            <div className="text-left">
+              <p>DEV</p>
+              <p>ELO</p>
+              <p>PER</p>
+            </div>
+            <div className="counter">
+              {counter}
+            </div>
+            <div className="circular-wrapper">
+              <div className="cover-me" >
+        
+              </div>
             </div>
           </div>
-          
-        </div>
-        <div className="curtain below">
-          <div className="text-left">
-            <p>DEV</p>
-            <p>ELO</p>
-            <p>PER</p>
-          </div>
-          <div class="counter">
-            {counter}
-          </div>
-          <div className="circular-wrapper">
-            <div className="cover-me" >
-          
-            </div>
-          </div>
-        </div>
       </CircularView>
     )
   }

@@ -18,6 +18,7 @@ const ExperienceView = styled.div`
 
     @media(max-width:480px){
       padding: 10px 0px 30px;
+      width: 90%;
     }
     &:hover {
       transform: scale(1.04);

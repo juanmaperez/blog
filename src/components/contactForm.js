@@ -14,6 +14,13 @@ const ContactFormView = styled.div`
     height: 50px;
     top: 30px;
     right: 20px;
+    @media(max-width:480px){
+      top: 130px;
+      right: auto;
+      left: 7px;
+      flex-direction: row;
+
+    }
     .btn-contact {
       text-align: right;
       flex: 1;

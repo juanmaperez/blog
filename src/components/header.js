@@ -31,6 +31,9 @@ const HeaderView = styled.div`
           top: 50px;
           left: -35px;
           text-align: center; 
+          @media(max-width:480px){
+            left: -45px;
+          }
           &.open {
             font-family: 'MFred';
             

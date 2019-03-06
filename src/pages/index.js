@@ -11,15 +11,27 @@ const IndexView = styled.div`
       flex-direction: row;
       justify-content: space-around;
       align-items:center;
-      padding: 20px 40px;
+      padding: 0px 40px;
       height: 100%;
       box-sizing: border-box;
       min-height: ${props => props.height - 140 }px;
+      @media(max-width:480px){
+        padding:0px;
+      }
     }
   }
 `
 
 class IndexPage extends Component {
+  state = {
+    complete: false
+  }
+
+  completeState = () => {
+    this.setState(()=>({
+      complete: true
+    }))
+  }
 
   render(){
     const height = window.innerHeight;
@@ -30,8 +42,10 @@ class IndexPage extends Component {
             <h1>I'M front End</h1>
           </div>
           <div className="index-container">
-            <CircularDisplay></CircularDisplay>
+            <CircularDisplay handleComplete={this.completeState}></CircularDisplay>
+
           </div>
+
         </div>
       </IndexView>
      )

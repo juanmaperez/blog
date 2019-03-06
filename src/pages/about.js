@@ -17,8 +17,8 @@ const AboutPageView = styled.div`
     box-sizing: border-box;
     @media(max-width:480px) {
       margin-top:50px;
-      padding: 0px 15px 20px;
-      top: 10px;
+      padding: 0px 5px 20px;
+            top: 10px;
     }
   }
 `
