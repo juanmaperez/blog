@@ -26,7 +26,7 @@ const ContactFormView = styled.div`
       flex: 1;
       font-family: 'Questrial', Helvetica, sans-serif;
       font-size: 14px;
-      color: #fff;
+      color: #0e3746;
       background: transparent;
       -webkit-appearance: none;
       cursor: pointer;
@@ -47,7 +47,7 @@ const ContactFormView = styled.div`
     font-size: 12px;
     flex-basis:100%;
     width: 100%;
-    color: #000;
+    color: #be2623;
     position: fixed;
     bottom: 0px;
     transition: all 300ms linear;

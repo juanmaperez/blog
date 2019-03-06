@@ -10,8 +10,8 @@ const WorkItemView = styled.div`
   width: ${ props => props.width }px;
   height: ${ props => props.height }px;
   overflow:hidden;
-  background: rgba(${ props => props.work.bg }, ${ props => props.work.opacity } );
-  border-bottom: 100px solid rgb(${ props => props.work.bg });
+  background: #${ props => props.work.bg };
+  border-bottom: 100px solid #${ props => props.work.bg };
 
   .work-wrapper {
     position: absolute;
@@ -30,7 +30,7 @@ const WorkItemView = styled.div`
       right: 0;
     }
     .containerFixed:before {
-      background: rgba(${ props => props.work.bg }, ${ props => props.work.opacity } );
+      background: #${ props => props.work.bg };
 
       display: block;
       content: '';
@@ -70,7 +70,7 @@ const WorkItemView = styled.div`
       border-radius: 5px;
       transition: box-shadow 0.3s ease-in-out;
       padding: 30px 20px;
-      box-shadow: ${props => props.work.opacity !== '1'? "0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.1)" : "0 0 1px rgba(255, 255, 255, 0.5), 0 2px 4px rgba(255, 255, 255, 0.4)"}; 
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.1); 
 
       &:hover {
       }
@@ -84,11 +84,13 @@ const WorkItemView = styled.div`
         margin: 10px 0px;
         font-weight: normal;
         letter-spacing: 1px;
+        color: #0e3746
       }
       p {
         font-family: 'Questrial';
         font-size: 16px;
         line-height: 1.4;
+        color: #0e3746
       }
 
       ul {
@@ -96,10 +98,16 @@ const WorkItemView = styled.div`
         li {
           margin-bottom: 20px;
           font-family: 'Questrial' !important;
+          color: #0e3746;
+
           svg {
-            font-size: 8px;
-            color: rgb(${ props => props.work.bg === '255, 255, 255' ? '0, 0, 0': props.work.bg });
+            width: 0.475em !important;
+            height: 0.475em !important;
+            background: #be2623;
             margin-bottom: 2px;
+            path {
+              color: #be2623 !important;
+            }
           }
         }
       }

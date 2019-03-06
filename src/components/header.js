@@ -25,7 +25,7 @@ const HeaderView = styled.div`
         .link {
           width: 130px;
           display: block;
-          color:#fff;
+          color:#0e3746;
           transform: rotate(-90deg);
           position: relative;
           top: 50px;
@@ -38,7 +38,7 @@ const HeaderView = styled.div`
             font-family: 'MFred';
             
           }
-          &.open {color:#141414}
+          &.open {color:#0e3746}
         }
       }
     }

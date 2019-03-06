@@ -5,7 +5,7 @@
   min-height:100%;
   position: absolute;
   padding: 0px;
-  background:#141414;
+  background:#eae8dc;
 
   &.open {
     overflow: scroll;
@@ -95,8 +95,8 @@
             line-height: 1.2;
             font-size: 26px;
             font-family: 'Questrial', Helvetica, sans-serif;
-            -webkit-text-stroke: 0.4px #141414;
-            color:#fff;
+            -webkit-text-stroke: 0.4px #0e3746;
+            color:#0e3746;
             @media(max-width: 480px){
               max-width: 100%;;
               margin-bottom: 60px;
@@ -104,17 +104,17 @@
           }
           .read-more {
             font-family: 'Questrial' !important;
-            background: #141414;
+            background: #eae8dc;
             width: 160px;
             padding: 10px 14px;
             text-align: center;
-            border: 1px solid #fff;
+            border: 1px solid #0e3746;
             font-size: 18px;
             border-radius: 3px;
             box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 1px 4px rgba(255, 255, 255, 0.08);
 
             cursor: pointer;
-            color:#fff;
+            color:#0e3746;
             span {
               margin-left: 5px;
               font-size: 15px;
@@ -126,7 +126,7 @@
 
     .content {
       color: #141414;
-      background: #fff;
+      background: #f4f2ec;
       position: relative;
       right: 0;
       z-index: 2;

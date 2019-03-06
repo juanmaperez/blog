@@ -20,7 +20,7 @@ const CircularView = styled.div`
     -webkit-clip-path: inset(0 0 0 0);
     clip-path: inset(0 0 0 0);
     height: 100%;
-    background: #fff;
+    background: #f4f2ec;
     border: 1px solid transparent;
     transition: width 1ms linear;
    
@@ -135,6 +135,7 @@ const CircularView = styled.div`
 
 
     .circular-wrapper {
+      background: #f4f2ec;
       position: fixed;
       right: 0px;
       top: 165px;

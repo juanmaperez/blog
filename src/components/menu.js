@@ -13,7 +13,7 @@ const MenuView = styled.div`
     width: 18px;
     height: 28px;
     border-radius: 11px 11px 15px 15px;
-    border: 1px solid #fff;
+    border: 1px solid #0e3746;
     position: absolute;
     right: 5px;
     top: 50%;
@@ -35,7 +35,7 @@ const MenuView = styled.div`
       width: 1px;
       height: 3px;
       border-radius: 4px;
-      background: #fff;
+      background: #0e3746;
       border: 1px solid transparent;
       -webkit-animation-duration: 2s;
       animation-duration: 2s;
@@ -48,7 +48,7 @@ const MenuView = styled.div`
     }
     
     .goUp {
-      background:#fff;
+      background:#0e3746;
       position: absolute;
       top:-8px;
       left: 50%;
@@ -58,7 +58,7 @@ const MenuView = styled.div`
       opacity: 0.3 !important;
     }
     .goDown {
-      background:#fff;
+      background:#0e3746;
       position: absolute;
       bottom:-8px;
       left: 50%;
@@ -119,7 +119,7 @@ const MenuView = styled.div`
           line-height: 300px;
           text-decoration: none;
           position: relative;
-          color:#fff;
+          color:#0e3746;
           z-index: 2;
           height: 300px;
           font-family: 'MFred' !important;
@@ -134,7 +134,7 @@ const MenuView = styled.div`
             font-size: 45px;
             line-height: 0;
             transform: rotate(45deg);
-            color: #fff;
+            color: #0e3746;
             position: relative;
             top: 3px;
             opacity:0;
