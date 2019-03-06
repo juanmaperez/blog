@@ -119,8 +119,8 @@ const CircularView = styled.div`
           margin: 0px;
           font-weight: bolder;
           padding: 0px;
-          -webkit-text-stroke: 2px #141414;
-          color: #fff;
+          -webkit-text-stroke: 2px #0e3746;
+          color: #f4f2ec;
         }
         @media(max-width:480px){
           top: 160px;
@@ -190,7 +190,7 @@ const CircularView = styled.div`
     left: auto;
     font-family: 'Questrial';
     font-style: oblique;
-    color: #999;
+    color: #0e3746;
     width: 98%;
     display: flex;
     justify-content:center;
@@ -212,7 +212,7 @@ const CircularView = styled.div`
       width: 18px;
       height: 28px;
       border-radius: 11px 11px 15px 15px;
-      border: 1px solid #141414;
+      border: 1px solid #0e3746;
       margin: -24px auto 0;
   
       @media(max-width: 480px){
@@ -226,7 +226,7 @@ const CircularView = styled.div`
         width: 1px;
         height: 3px;
         border-radius: 4px;
-        background: #141414;
+        background: #0e3746;
         border: 1px solid transparent;
         -webkit-animation-duration: 2s;
         animation-duration: 2s;
