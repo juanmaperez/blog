@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import CircularDisplay from './../components/circularDisplay'
-import Techs from './../components/techs';
 import './../styles/index.scss'
 
 const IndexView = styled.div`

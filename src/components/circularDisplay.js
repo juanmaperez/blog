@@ -23,105 +23,131 @@ const CircularView = styled.div`
     background: #fff;
     border: 1px solid transparent;
     transition: width 1ms linear;
+   
     &.over {
       z-index: 2;
+
       .counter {
         position: fixed;
         top: 50%;
-        left:50%;
+        right:50%;
         text-transform: uppercase;
         font-size: 240px;
         margin-top: -80px;
+        margin-right:-40px;
         font-family: 'Mfred' !important;
-        color: salmon;
+        color: #fff;
+        -webkit-text-stroke: 2px #be2623;
         z-index:3;
+        font-size: 20vh;
+
+   
         @media(max-width:480px){
-          font-size: 19vh;
+          font-size: 20vh;
           top: auto;
-          bottom:10px;
-          right: 40px;
-          left:auto;
+          left: 40px;
+          margin-left: 0px;
+          bottom: 40px;
+          margin-top: 0;
         }
       }
-      .text-left {
-        p {
-          color: #141414;
-          opacity: 0.8;
-          -webkit-text-stroke: 2px #141414;
 
+      .text-left {
+        flex: 1;
+        position: fixed;
+        top:175px;
+        left: 40px;
+        z-index: 2;
+        p {
+          font-size: 16vw;
+          line-height: 80%;
+          text-indent: -13px;
+          margin: 0px;
+          font-weight: bolder;
+          padding: 0px;
+          -webkit-text-stroke: 2px #0e3746;
+          color: #0e3746;
+        }
+        @media(max-width:480px){
+          top: 160px;
+
+          p {
+            line-height: 85%;
+            font-size: 30vw;
+            text-indent: 0px;
+          }  
         }
       }
     }
+
     &.below {
       width: 100%;
       z-index: 1;
+
       .counter {
         position: fixed;
         top: 50%;
-        left:50%;
+        right:50%;
         text-transform: uppercase;
-        font-size: 16vh;
+        margin-top: -80px;
+        margin-right:-40px;
         font-family: 'Mfred' !important;
-        color: rgba(0,0,0, 0.2);
+        color: #0e3746;
         z-index:3;
+        font-size: 20vh;
+
         @media(max-width:480px){
-          font-size: 19vh;
+          font-size: 20vh;
           top: auto;
-          bottom:10px;
-          right: 40px;
-          left:auto;
+          left: 40px;
+          margin-left: 0px;
+          bottom: 40px;
+          margin-top: 0;
+        }
+      }
+
+      .text-left {
+        flex: 1;
+        position: fixed;
+        top:175px;
+        left: 40px;
+        z-index: 2;
+        p {
+          font-size: 16vw;
+          line-height: 80%;
+          text-indent: -13px;
+          margin: 0px;
+          font-weight: bolder;
+          padding: 0px;
+          -webkit-text-stroke: 2px #141414;
+          color: #fff;
+        }
+        @media(max-width:480px){
+          top: 160px;
+          p {
+            line-height: 85%;
+            font-size: 30vw;
+            text-indent: 0px;
+          }  
         }
       }
     }
 
-    .text-left {
-      flex: 1;
-      position: fixed;
-      top:160px;
-      left: 40px;
-      z-index: 2;
-      p {
-        font-size: 24vw;
-        line-height: 80%;
-        text-indent: -13px;
-        margin: 0px;
-        font-weight: bolder;
-        padding: 0px;
-        -webkit-text-stroke: 2px #141414;
-        color: #fff;
-      }
-      @media(max-width:480px){
-        left:30px;
-        top:140px;
-        p {
-          font-size: 39vw;
-        }  
-      }
-    }
+
     .circular-wrapper {
       position: fixed;
       right: 0px;
-      top: 240px;
+      top: 165px;
       border-radius: 50%;
       flex: 1;
-      @media(max-width:480px){
-        top: auto;
-        bottom: -10px;
-        left:-10px;
-        right: auto;
-        margin-right: -60px;
-        p {
-          font-size: 30vw;
-        }  
-      }
-
+    
       .cover-me {
         border-radius: 50%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-image: url("static/jp_brush.png");
+        background-image: url("static/jp_brush_normal.png");
         background-size: cover;
         background-position: center center;
         width: 45vw;
@@ -130,39 +156,51 @@ const CircularView = styled.div`
         
       .circular {
         border-radius: 50%;
-        background-image: url("static/jp_brush_red.png");
+        background-image: url("static/jp_brush.png");
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
         margin-top: -2px;
         width: 45vw;
         height: 45vw;
+      }
 
+      @media(max-width:480px){
+        top: auto;
+        bottom:30px;
+        right: auto;
+        left: 45%;
+
+        .circular , .cover-me {
+          width: 40vw;
+          height: 40vw;
+        }
+        p {
+          font-size: 30vw;
+        }  
       }
     }
   }
 
   .message-btn {
-    position:absolute;
+    position: absolute;
     z-index: 1000;
     bottom: 15px;
-    left: 50%;
-    text-align: center;
+    left: auto;
     font-family: 'Questrial';
     font-style: oblique;
     color: #999;
-    text-align: center;
-    font-size:12px;
-    width: 100px;
-    margin-left: -65px;
+    width: 98%;
     display: flex;
-    justify-content-center;
-    text-align: center;
+    justify-content:center;
     p {
+      display:block;
       text-align: center;
       margin-top: 0px;
       margin-bottom: 0px;
       width: 100%;
+      font-size:14px;
+
     }
     @media(max-width:480px){
       bottom: 0px;
@@ -174,7 +212,7 @@ const CircularView = styled.div`
       height: 28px;
       border-radius: 11px 11px 15px 15px;
       border: 1px solid #141414;
-      margin-top: -24px;
+      margin: -24px auto 0;
   
       @media(max-width: 480px){
         width: 15px;
@@ -285,7 +323,7 @@ class CircularDisplay extends Component {
               <p>ELO</p>
               <p>PER</p>
             </div>
-            {!complete && <div className="counter">
+            {<div className="counter">
               {counter}
             </div>}
             <div className="circular-wrapper">
