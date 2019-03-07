@@ -48,13 +48,13 @@ const WorkItemView = styled.div`
       flex-direction:row;
       justify-content:center;
       align-items:center;
-      width:700px;
+      width:45vw;
       height:auto;
       position: absolute;
       top: 40%;
-      left: 45%;
+      left: 50%;
       text-align: center;
-      margin-top:-200px;
+      margin-top:-150px;
       border-radius: 5px;
       img { max-width:100% }
     }
@@ -64,7 +64,7 @@ const WorkItemView = styled.div`
       position: absolute;
       top: 50%;
       left:200px;
-      margin-top:-200px;
+      margin-top:-150px;
       border: 1px solid #f1f1f1;
       background: #fff;
       border-radius: 5px;
