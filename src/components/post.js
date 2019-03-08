@@ -55,12 +55,12 @@ const PostView = styled.div`
       padding: 20px 20px 25px;
       flex: 1;
       .post-icon {
-        width: 30px;
-        height: 30px;
+        width: 35px;
+        height: 35px;
         background: url(icons/${props=> props.icon}.png);
         border-radius: 50%;
         position: absolute;
-        top: -15px;
+        top: -17px;
         left:20px;
         background-size: 130%;
         background-position:center center;
