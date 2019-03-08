@@ -4,81 +4,111 @@ import styled from'styled-components';
 import Image from './image'
 
 const PostView = styled.div`
+  padding: 25px;
+  box-sizing: border-box;
+  width: 33%;
+  @media(max-width:878px){
+    width:50%;
+  }
+  @media(max-width:510px){
+    width:100%;
+    padding:25px 0px;
+  }
   .post {
-    border-bottom: 1px solid #000;  
-    padding: 50px 70px 0px 30px;
-    margin-bottom: 100px;
+    background: #f7f6f3;
+    border-radius: 10px;
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     box-sizing: border-box;
-    &:first-child{
-      padding: 10px 70px 0px 30px;
+    transition: all 200ms linear;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.08);      
+    &:hover {
+      0px 3px 5px 5px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.08);
+      transform: scale(1.02);
+      .image-container {
+        .image {
+          transform: scale(1.1);
+        }
+      }
     }
-    &:last-child{
-      border-bottom: 0px;
+    .image-container {
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.08);      
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      height: 190px;
+      .image {
+        transition: all 300ms linear;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        background: url(${props => props.image});
+        background-size: cover;
+        background-position: center center;
+       
+      }
     }
+    .post-container { 
+      position: relative;
+      padding: 20px 20px 25px;
+      flex: 1;
+      .post-icon {
+        width: 30px;
+        height: 30px;
+        background: url(icons/${props=> props.icon}.png);
+        border-radius: 50%;
+        position: absolute;
+        top: -15px;
+        left:20px;
+        background-size: 130%;
+        background-position:center center;
+        box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.08);; 
+        overflow: hidden;     
 
-    .post-title-container {
-      padding: 0px 25px 0px 0px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      width: 80%;
-      box-sizing: border-box;
-      h2 { 
-        margin: -5px 0px;
+      }
+      .post-date {
+        display: block;
+        margin: 20px 3px 0px;
+        font-size: 15px;
+        text-transform: uppercase;
+        font-family: 'Mfred';
+        letter-spacing: 1px;
+        margin-bottom: 0px;
+        color: #be2623;
+      } 
+      .post-title {
+        margin: 8px 0px;
         padding: 0px;
-        font-weight: normal;
-        font-size: 4vw;
+        font-size: 32px;
+        line-height: 1.2;
+        letter-spacing: 1.2px;
+        color: #0e3746;
+        // -webkit-text-stroke: 0.001em #f4f2ec;
       }
     }
-    .date-container {
-      padding: 12px 30px 8px 0px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      width: 5%;
-      text-align: right;
-      box-sizing: border-box;
-
-      span {
-        display:block;
-        line-height: .9;
-        color:#000;
-        &.post-date-x { font-size: 60px; -webkit-text-stroke: 2px #fff; line-height: .6}
-        &.day { font-size: 36px; -webkit-text-stroke: 0.7px #fff; }
-        &.month { font-size: 20px}
-        &.year { font-size: 18px; line-height: 1.1}
-      }
-    }
-    .image-container{
-      width: 15%;
-      padding:10px 0px 8px;
-      box-sizing: border-box;
-      img {
-        max-width:100%;
-      }
-    }  
   }
 `
 
 class PostItem extends Component {
+  
   render(){
+    const image = "https://juanmaperez.me/wp-content/uploads/2017/04/juanma_perez.jpg"
     return(
-      <PostView>
-        <div className="post">
-          <div className="date-container">
-            <div className="post-date">
-              <span className="post-date-e day">20</span>
-              <span className="post-date-e month">DEC</span>
-              <span className="post-date-e year">2018</span>
+      <PostView image={image} icon={'angular'}>
+        <div className="post-wrapper">
+          <div className="post">
+            <div className="image-container">
+              <div className="image"></div>
             </div>
-          </div>
-          <div className="post-title-container">
-            <h2 className="post-title">This is an example of post title for the list of posts</h2>
-          </div>
-    
-          <div className="image-container">
-            <Image src={'https://juanmaperez.me/wp-content/uploads/2017/04/juanma_perez.jpg'} className="post-image" />
+            <div className="post-container">
+              <div className="post-icon"></div>
+              <div className="post-date">
+                20 december 2019
+              </div>
+              <h2 className="post-title">This is an example of post title for the list of posts</h2>
+            </div>
           </div>
         </div>
       </PostView>

@@ -13,7 +13,15 @@ const BlogView = styled.div`
       margin-top: 140px;
       padding: 0px 20px 20px;
       box-sizing: border-box;
-      background: #fff;
+      display: flex;
+      justify-content: flex-start;
+      flex-flow: row wrap;
+      @media(max-width:878px){
+        margin-top:100px
+      }
+      @media(max-width:510px){
+        margin-top:80px;
+      }
     }
   }
 `
