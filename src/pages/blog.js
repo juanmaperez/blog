@@ -9,9 +9,8 @@ const BlogView = styled.div`
       width: 100%;
       margin: 0px auto;
       position: relative;
-      max-width: 1300px;
-      margin-top: 140px;
-      padding: 0px 20px 20px;
+      margin-top: 170px;
+      padding: 0px 0px 20px;
       box-sizing: border-box;
       display: flex;
       justify-content: flex-start;
@@ -25,10 +24,10 @@ const BlogView = styled.div`
     }
   }
 `
-
 class BlogPage extends Component {
 
   render(){
+    const postList = [0,0,0,0,0,0,0,0];
     return (
       <BlogView>
         <div id="blog" className="page">
@@ -37,11 +36,7 @@ class BlogPage extends Component {
           </div>
 
           <div className="blog-container post-list">
-            <PostItem></PostItem>
-            <PostItem></PostItem>
-            <PostItem></PostItem>
-            <PostItem></PostItem>
-            <PostItem></PostItem>
+            { postList.map((post, index) => (<PostItem key={index} index={index} post={post}/>) )}
           </div>
         </div>
       </BlogView>
