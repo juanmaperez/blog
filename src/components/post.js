@@ -8,7 +8,7 @@ const PostView = styled.div`
   box-sizing: border-box;
   width: 100%;
   position: relative;
-  height: ${props => props.height/1.5}px;
+  height: ${props => props.height}px;
   @media(max-width:878px){
     width:50%;
   }
@@ -17,8 +17,9 @@ const PostView = styled.div`
     padding:25px 0px;
   }
   .post {
+    cursor: pointer;
     position: relative;
-    height: ${props => props.height/1.5}px;
+    height: ${props => props.height}px;
     background: ${props => props.index % 2 ? '#EAE8DC' : '#f4f2EC'  };
     display: flex;
     flex-direction: ${props => props.index % 2 ? 'row' : 'row-reverse'};
@@ -109,12 +110,31 @@ const PostView = styled.div`
 
 class PostItem extends Component {
   
+  state = {height: 0, width: 0 };
+
+  resize = () => {
+    const height = window.innerHeight > 480 ? window.innerHeight/1.5 : window.innerHeight;
+    const width = window.innerWidth;
+    this.setState({ height, width }) 
+  }
+
+  componentDidMount(){
+    this.resize();
+    window.addEventListener("resize", this.resize.bind(this))
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener("resize", this.resize.bind(this))
+  }
+
   render(){
     const {post, index } = this.props;
-    const postHeight = window.innerHeight
+    const { height, width } = this.state;
+    console.log(height)
+
     const image = "https://juanmaperez.me/wp-content/uploads/2017/04/juanma_perez.jpg"
     return(
-      <PostView image={image} height={postHeight} index={index} icon={'angular'}>
+      <PostView image={image} height={height} index={index} icon={'angular'}>
         <div className="post-wrapper">
           <div className="post">
             <div className="image-container">

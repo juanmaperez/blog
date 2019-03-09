@@ -36,7 +36,7 @@ class BlogPage extends Component {
           </div>
 
           <div className="blog-container post-list">
-            { postList.map((post, index) => (<PostItem index={index} post={post}/>) )}
+            { postList.map((post, index) => (<PostItem key={index} index={index} post={post}/>) )}
           </div>
         </div>
       </BlogView>
