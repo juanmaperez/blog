@@ -4,9 +4,11 @@ import styled from'styled-components';
 import Image from './image'
 
 const PostView = styled.div`
-  padding: 25px;
+  padding: 0px;
   box-sizing: border-box;
-  width: 33%;
+  width: 100%;
+  position: relative;
+  height: ${props => props.height/1.5}px;
   @media(max-width:878px){
     width:50%;
   }
@@ -15,32 +17,42 @@ const PostView = styled.div`
     padding:25px 0px;
   }
   .post {
-    background: #f7f6f3;
-    border-radius: 10px;
+    position: relative;
+    height: ${props => props.height/1.5}px;
+    background: ${props => props.index % 2 ? '#EAE8DC' : '#f4f2EC'  };
     display: flex;
-    flex-direction: column;
+    flex-direction: ${props => props.index % 2 ? 'row' : 'row-reverse'};
     justify-content: space-around;
     box-sizing: border-box;
     transition: all 200ms linear;
     overflow: hidden;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.08);      
     &:hover {
-      0px 3px 5px 5px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.08);
-      transform: scale(1.02);
+      // transform: scale(1.02);
       .image-container {
         .image {
-          transform: scale(1.1);
+          transform: scale(1.2);
+        }
+      }
+      .post-container {
+        .post-icon {
+          transform: rotate(360deg)
+        }
+        .post-title {
+          color: #0e3746;
+          transition: all 500ms linear;
         }
       }
     }
     .image-container {
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.08);      
       flex: 1;
       position: relative;
       overflow: hidden;
-      height: 190px;
+      height: 100%;
+      width: 50%;
+      box-sizing: border-box;
       .image {
-        transition: all 300ms linear;
+        padding: 20px;
+        transition: all 3s linear;
         position: relative;
         height: 100%;
         width: 100%;
@@ -52,26 +64,28 @@ const PostView = styled.div`
     }
     .post-container { 
       position: relative;
-      padding: 20px 20px 25px;
       flex: 1;
+      padding: 40px;
+      max-width: 50%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       .post-icon {
         width: 35px;
         height: 35px;
         background: url(icons/${props=> props.icon}.png);
         border-radius: 50%;
-        position: absolute;
-        top: -17px;
-        left:20px;
         background-size: 130%;
         background-position:center center;
         box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.08);; 
-        overflow: hidden;     
-
+        overflow: hidden;   
+        transition: all 400ms linear;  
       }
       .post-date {
         display: block;
         margin: 20px 3px 0px;
-        font-size: 15px;
+        font-size: 18px;
         text-transform: uppercase;
         font-family: 'Mfred';
         letter-spacing: 1px;
@@ -79,13 +93,15 @@ const PostView = styled.div`
         color: #be2623;
       } 
       .post-title {
-        margin: 8px 0px;
+        margin: 15px 0px;
         padding: 0px;
-        font-size: 32px;
-        line-height: 1.2;
-        letter-spacing: 1.2px;
-        color: #0e3746;
-        // -webkit-text-stroke: 0.001em #f4f2ec;
+        font-weight:bolder;
+        font-size: 82px;
+        line-height: 1;
+        letter-spacing: 1.4px;
+        color: transparent;
+        -webkit-text-stroke: 0.001em #0e3746;
+        transition: all 500ms linear;
       }
     }
   }
@@ -94,9 +110,11 @@ const PostView = styled.div`
 class PostItem extends Component {
   
   render(){
+    const {post, index } = this.props;
+    const postHeight = window.innerHeight
     const image = "https://juanmaperez.me/wp-content/uploads/2017/04/juanma_perez.jpg"
     return(
-      <PostView image={image} icon={'angular'}>
+      <PostView image={image} height={postHeight} index={index} icon={'angular'}>
         <div className="post-wrapper">
           <div className="post">
             <div className="image-container">
