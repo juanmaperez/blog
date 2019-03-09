@@ -160,12 +160,23 @@ class Menu extends Component {
       { title:'Work', to:'/work', color:'' , description: 'Work, whatever asdjlks alkdfk as asdf sadf sdf asdfsdfasd sdfsd asdfsdf saddsfdf' },
       { title:'Blog', to:'/blog', color:'', description: 'Blog, whatever asdjlks alkdfk as asdf sadf sdf asdfsdfasd sdfsd asdfsdf saddsfdf' },
     ],
+    'heigh': 0,
+    'width' : 0,
     'active': 0,
   } 
+
+  resize = () => {
+    const height = window.innerHeight;
+    const width = window.innerWidth;
+    this.setState({ height, width }) 
+  }
 
   componentDidMount(){
     const { options } = this.state;
     const { location } = this.props;
+
+    this.resize();
+    window.addEventListener("resize", this.resize.bind(this))
 
     const active = options.findIndex(opt => opt.to === location.pathname);
 
@@ -217,10 +228,14 @@ class Menu extends Component {
   }
 
   setTopPosition(){
-    const { active } = this.state
-    const height = window.innerWidth > 480 ? '500' : '150';
-    return (-(height * active))
+    const { active, height } = this.state
+    const elementHeight = height > 480 ? '500' : '150';
+    return (-(elementHeight * active))
   } 
+
+  componentWillUnmount(){
+    window.removeEventListener("resize", this.resize.bind(this))
+  }
 
   render(){
     const { active, options } = this.state;

@@ -17,8 +17,9 @@ const ExperienceView = styled.div`
     transition: box-shadow 0.3s ease-in-out,transform 100ms linear;
 
     @media(max-width:480px){
-      padding: 10px 0px 30px;
+      padding: 10px 0 30px;
       width: 90%;
+      margin: 0px auto 40px;
     }
     &:hover {
       transform: scale(1.04);

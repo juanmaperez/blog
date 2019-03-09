@@ -23,7 +23,20 @@ const IndexView = styled.div`
 
 class IndexPage extends Component {
   state = {
-    complete: false
+    complete: false,
+    height: 0,
+    width: 0
+  }
+
+  componentDidMount(){
+    this.resize();
+    window.addEventListener('resize', this.resize.bind(this))
+  }
+
+  resize = () => {
+    const height = window.innerHeight;
+    const width = window.innerWidth;
+    this.setState({ height, width }) 
   }
 
   completeState = () => {
@@ -32,13 +45,17 @@ class IndexPage extends Component {
     }))
   }
 
+  componentWillUnmount(){
+    window.removeEventListener('resize', this.resize.bind(this))
+  }
+
   render(){
-    const height = window.innerHeight;
+    const { height, width } = this.state;
     return (
       <IndexView height={height}>
         <div id="index" className="page">
           <div className="title-container">
-            <h1>I'M front End</h1>
+            <h1>I'M { width < 480 ? <br/> : '' } front End</h1>
           </div>
           <div className="index-container">
             <CircularDisplay handleComplete={this.completeState}></CircularDisplay>

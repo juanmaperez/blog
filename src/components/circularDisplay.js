@@ -250,11 +250,20 @@ class CircularDisplay extends Component {
   timer;
   state = {
     counter: 0,
-    complete: false
+    complete: false,
+    height: 0,
+    width: 0
+  }
+
+  resize = () => {
+    const height = window.innerHeight;
+    const width = window.innerWidth;
+    this.setState({ height, width }) 
   }
 
   componentDidMount(){
-    
+    this.resize();
+    window.addEventListener("resize", this.resize.bind(this))
     const circular = document.querySelector('.index-container');
     if(circular){
       circular.addEventListener("mousedown", this.checkPressingDown, false);
@@ -305,6 +314,9 @@ class CircularDisplay extends Component {
     this.props.handleComplete()
   }
  
+  componentWillUnmount(){
+    window.removeEventListener("resize", this.resize.bind(this))
+  }
 
   render(){
     const {counter, complete} = this.state;
