@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from'styled-components';
 
-import Image from './image'
 
 const PostView = styled.div`
   padding: 25px;
