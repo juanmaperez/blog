@@ -19,7 +19,7 @@ const BlogView = styled.div`
         margin-top:100px
       }
       @media(max-width:510px){
-        margin-top:80px;
+        margin-top:0px;
       }
     }
   }

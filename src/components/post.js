@@ -7,9 +7,7 @@ const PostView = styled.div`
   width: 100%;
   position: relative;
   height: ${props => props.height}px;
-  @media(max-width:878px){
-    width:50%;
-  }
+
   @media(max-width:510px){
     width:100%;
     padding:25px 0px;
@@ -25,6 +23,7 @@ const PostView = styled.div`
     box-sizing: border-box;
     transition: all 200ms linear;
     overflow: hidden;
+  
     &:hover {
       // transform: scale(1.02);
       .image-container {
@@ -58,7 +57,7 @@ const PostView = styled.div`
         background: url(${props => props.image});
         background-size: cover;
         background-position: center center;
-       
+        box-sizing: border-box;
       }
     }
     .post-container { 
@@ -101,6 +100,34 @@ const PostView = styled.div`
         color: transparent;
         -webkit-text-stroke: 0.001em #0e3746;
         transition: all 500ms linear;
+      }
+    }
+
+    @media(max-width: 480px){
+      flex-direction: column;
+      .image-container {
+        width: 100%;
+      }
+    
+      .post-container {
+        width: 100%;
+        max-width: none;
+        padding: 40px 20px;
+
+        .post-date {
+          font-size:16px !important;
+          margin: 10px 3px 0px;
+        } 
+        .post-title {
+          margin: 10px 0px;
+          font-size: 32px;
+          color: #0e3746;
+        }
+        .post-icon {
+          min-height: 24px;
+          width: 24px;
+          margin-top: 10px;
+        }
       }
     }
   }
