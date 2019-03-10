@@ -22,9 +22,9 @@ const MenuView = styled.div`
 
     @media(max-width: 480px){
       position: fixed;
-      top: 240px;
-      left: 20px;
-      right: auto; 
+      top: 100px;
+      left: auto;
+      right: 20px;
       width: 15px;
       height: 22px;
     }
@@ -228,8 +228,8 @@ class Menu extends Component {
   }
 
   setTopPosition(){
-    const { active, height } = this.state
-    const elementHeight = height > 480 ? '500' : '150';
+    const { active, width } = this.state
+    const elementHeight = width > 480 ? '500' : '150';
     return (-(elementHeight * active))
   } 
 
@@ -251,7 +251,7 @@ class Menu extends Component {
           <div className="menu-wrapper">
             <ul className="menu-container">
               { options.map((option) => <li key={option.title} className="menu-link"><Link to={ option.to }/><span onClick={this.props.handleContent} className="link">{ option.title }<FontAwesomeIcon className="icon" icon={faArrowUp} /></span></li> )}  
-            </ul>}
+            </ul>
           </div>
         </div>
       </MenuView>

@@ -15,10 +15,13 @@ const ContactFormView = styled.div`
     top: 30px;
     right: 20px;
     @media(max-width:480px){
-      top: 130px;
+      top: 140px;
       right: auto;
       left: 7px;
-      flex-direction: row;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      justify-content: space-around;
 
     }
     .btn-contact {
