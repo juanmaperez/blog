@@ -41,13 +41,12 @@ const CircularView = styled.div`
         z-index:3;
         font-size: 20vh;
 
-   
         @media(max-width:480px){
           font-size: 20vh;
           top: auto;
           left: 40px;
           margin-left: 0px;
-          bottom: 40px;
+          bottom: 20px;
           margin-top: 0;
         }
       }
@@ -69,12 +68,13 @@ const CircularView = styled.div`
           color: #0e3746;
         }
         @media(max-width:480px){
-          top: 160px;
+          top: 140px;
 
           p {
             line-height: 85%;
-            font-size: 30vw;
+            font-size: 35vw;
             text-indent: 0px;
+            letter-spacing: 1.4px;
           }  
         }
       }
@@ -101,7 +101,7 @@ const CircularView = styled.div`
           top: auto;
           left: 40px;
           margin-left: 0px;
-          bottom: 40px;
+          bottom: 20px;
           margin-top: 0;
         }
       }
@@ -123,11 +123,12 @@ const CircularView = styled.div`
           color: #f4f2ec;
         }
         @media(max-width:480px){
-          top: 160px;
+          top: 140px;
           p {
             line-height: 85%;
-            font-size: 30vw;
+            font-size: 35vw;
             text-indent: 0px;
+            letter-spacing: 1.4px;
           }  
         }
       }
@@ -168,9 +169,8 @@ const CircularView = styled.div`
 
       @media(max-width:480px){
         top: auto;
-        bottom:30px;
-        right: auto;
-        left: 45%;
+        bottom: 10px;
+        right: 10px;
 
         .circular , .cover-me {
           width: 40vw;
