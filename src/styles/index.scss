@@ -51,6 +51,11 @@ body {
       line-height: 0.9;
       text-indent: 0px;
     }
+    @media(max-width:768px){
+      h1 {
+        font-size: 120px;
+      }
+    }
     @media(max-width:480px){
       position: relative;
       h1{

@@ -4,10 +4,10 @@ import styled from 'styled-components'
 import WorkItem from './../components/workItem' 
 
 const works = [  
-  { title: 'Australis', description: 'Maecenas justo nisi, condimentum eu eros sit amet, pellentesque maximus dolor. Quisque facilisis orci nisi.', bg: 'f4f2ec', opacity: '1',  img: 'australis'},
-  { title: 'Colossus Bets', description: 'Ut in gravida purus. Etiam et congue lacus, et consectetur arcu. Donec est justo, interdum sit amet.', bg: 'be2623', opacity: '1', img: 'colossus'},
-  { title: 'Umaicha', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a nisl ac ligula volutpat tincidunt.', bg: 'eae8dc', opacity: '1', img: 'umaicha'},
-  { title: 'Oysho', description: 'Quisque in faucibus risus, eget ultrices sapien. Donec euismod consequat nibh non aliquet. ', bg: '0e3746', opacity: '1', img: 'oysho'}]
+  { title: 'Australis', description: 'Maecenas justo nisi, condimentum eu eros sit amet, pellentesque maximus dolor. Quisque facilisis orci nisi.', bg: 'f4f2ec', color: '0e3746',  img: 'australis'},
+  { title: 'Colossus Bets', description: 'Ut in gravida purus. Etiam et congue lacus, et consectetur arcu. Donec est justo, interdum sit amet.', bg: 'be2623', color: 'f4f2ec', img: 'colossus'},
+  { title: 'Umaicha', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a nisl ac ligula volutpat tincidunt.', bg: 'eae8dc', color: '0e3746', img: 'umaicha'},
+  { title: 'Oysho', description: 'Quisque in faucibus risus, eget ultrices sapien. Donec euismod consequat nibh non aliquet. ', bg: '0e3746', color: 'f4f2ec', img: 'oysho'}]
 
 const WorkPageView = styled.div`
 #work {
@@ -19,19 +19,43 @@ const WorkPageView = styled.div`
     top:0px;
     padding: 0px 0px 0px;
     box-sizing: border-box;
-    background: #fff;
     @media(max-width:480px) {
-      padding: 50px 15px 20px;
-      top: 10px;
+      padding: 0px;
+      top: 0px;
     }
   }
+  .title-container {
+    h1 {
+
+    }
+  }
+}
 `
 
 class WorkPage extends Component {
-  
-  render(){
-    const height = window.innerHeight;
+
+  state = { 
+    height: 0,
+    width: 0
+  }
+
+  componentDidMount(){
+    this.resize();
+    window.addEventListener('resize', this.resize.bind(this))
+  }
+
+  resize = () => {
     const width = window.innerWidth;
+    const height = window.innerHeight;
+    this.setState({height, width})
+  }
+  
+  componentWillUnmount(){
+    window.removeEventListener('resize', this.resize.bind(this))
+  }
+
+  render(){
+    const {height, width} = this.state;
     
     return (
       <WorkPageView>
