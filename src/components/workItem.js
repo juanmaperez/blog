@@ -156,7 +156,7 @@ const WorkItemView = styled.div`
 
   @media(max-width: 480px){
     width: 100%;
-    padding: 0px;
+    padding: 20px 0px 20px;
     height: auto;
 
     .work-wrapper {
